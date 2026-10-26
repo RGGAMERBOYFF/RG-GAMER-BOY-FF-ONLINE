@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#171717">
+<meta name="description" content="Sign in to RG GAMER BOY FF using Google or continue as a guest.">
+<title>RG GAMER BOY FF | Login</title>
+<style>
+:root{--red:#d21f35;--red2:#8f1025;--ink:#f8fafc;--muted:#b7c0d0;--line:#ffffff20}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;padding:22px;display:grid;place-items:center;font-family:Arial,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 15% 15%,#6d1028 0,transparent 42%),radial-gradient(ellipse at 90% 85%,#163b62 0,transparent 38%),linear-gradient(135deg,#080b13,#17111b 55%,#080b13);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.15;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,black,transparent)}
+.card{position:relative;width:min(100%,470px);background:linear-gradient(145deg,#202431f5,#10131cf5);border:1px solid #ffffff20;border-radius:26px;padding:clamp(24px,6vw,38px);box-shadow:0 25px 90px #0009;backdrop-filter:blur(16px)}
+.brand{display:flex;align-items:center;gap:13px;margin-bottom:30px}.logo{width:54px;height:54px;flex:0 0 54px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#ef334d,#a30f29);color:#fff;font-size:21px;font-weight:900;box-shadow:0 8px 24px #d21f3544}.brand h1{font-size:clamp(17px,4vw,22px);margin:0;letter-spacing:.3px}.eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:#ff687b;font-weight:800}h2{font-size:clamp(27px,6.5vw,36px);line-height:1.15;margin:10px 0 14px;letter-spacing:-.7px}p{color:var(--muted);line-height:1.65;font-size:15px}.actions{display:grid;gap:13px;margin-top:26px}button{width:100%;min-height:54px;border-radius:13px;padding:14px 16px;font-size:16px;font-weight:800;cursor:pointer;transition:transform .15s,filter .15s}button:active{transform:scale(.985)}button:disabled{opacity:.55;cursor:wait}.google{position:relative;background:#fff;border:1px solid #e4e7ec;color:#171923;display:flex;align-items:center;justify-content:center;gap:11px}.google-mark{font-weight:900;font-size:22px;background:conic-gradient(from -45deg,#4285f4 0 25%,#34a853 25% 48%,#fbbc05 48% 70%,#ea4335 70% 86%,#4285f4 86%);color:transparent;background-clip:text}.recommend{position:absolute;right:9px;top:-10px;background:#d9fbe7;color:#116534;border-radius:20px;padding:4px 8px;font-size:10px;letter-spacing:.4px;text-transform:uppercase}.guest{border:1px solid #ffffff20;background:linear-gradient(100deg,#d21f35,#9f132a);color:#fff;box-shadow:0 9px 25px #d21f352b}.key-panel{display:none;margin-top:18px;padding:17px;border:1px solid #ffffff22;border-radius:16px;background:#080b13a8}.key-panel.show{display:block}.key-panel label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}.key-panel input{width:100%;min-height:49px;border:1px solid #ffffff30;border-radius:11px;background:#0b0e17;color:#fff;padding:12px 14px;font-size:15px;outline:none}.key-panel input:focus{border-color:#ff687b;box-shadow:0 0 0 3px #d21f352b}.verify{margin-top:10px;background:#f5f6fa;color:#151923;border:0}.cancel{margin-top:7px;min-height:38px;background:transparent;color:#c6ccda;border:0;font-size:13px}.status{min-height:22px;margin-top:15px;font-size:13px;line-height:1.5;text-align:center;color:#ff9ba7;overflow-wrap:anywhere}.note{font-size:12px;text-align:center;border-top:1px solid var(--line);padding-top:17px;margin-top:21px}.shield{display:inline-flex;align-items:center;gap:6px;color:#b8c3d6;font-size:11px;justify-content:center;width:100%;margin-top:12px}
+</style>
+</head>
+<body>
+<main class="card">
+ <div class="brand"><div class="logo">RG</div><h1>RG GAMER BOY FF</h1></div>
+ <div class="eyebrow">Welcome to your gaming hub</div>
+ <h2>Ready to jump in?</h2>
+ <p>Choose a secure way to continue to <strong style="color:#fff">RG GAMER BOY FF</strong>. Google sign-in is recommended for a smoother, personalized experience.</p>
+ <div class="actions">
+  <button id="googleBtn" class="google" type="button"><span class="recommend">Recommended</span><span class="google-mark" aria-hidden="true">G</span><span>Continue with Google</span></button>
+  <button id="guestBtn" class="guest" type="button">Continue as Guest <span aria-hidden="true">→</span></button>
+ </div>
+ <section id="keyPanel" class="key-panel" aria-label="Guest security key">
+  <label for="guestKey">Guest Security Key</label>
+  <input id="guestKey" type="password" autocomplete="off" placeholder="Enter your security key" aria-describedby="keyHint">
+  <p id="keyHint" style="font-size:12px;margin:8px 0 0">Enter the key provided by the website owner.</p>
+  <button id="verifyBtn" class="verify" type="button">Verify &amp; Continue</button>
+  <button id="cancelKeyBtn" class="cancel" type="button">Cancel</button>
+ </section>
+ <div id="status" class="status" role="status" aria-live="polite"></div>
+ <div class="note">Your sign-in is handled by Firebase Authentication. Never share your password or verification codes.</div>
+ <div class="shield">✦ &nbsp; Secure access · RG GAMER BOY FF</div>
+</main>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithRedirect, signInAnonymously, getRedirectResult, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDTyYnD3BuGscMsajttDmO1uHdCBxACVyM",
+  authDomain: "rg-gamer-boy-backend.firebaseapp.com",
+  databaseURL: "https://rg-gamer-boy-backend-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rg-gamer-boy-backend",
+  storageBucket: "rg-gamer-boy-backend.firebasestorage.app",
+  messagingSenderId: "1064165237495",
+  appId: "1:1064165237495:web:cb2fed75dfc844509e69f2",
+  measurementId: "G-XFJ3DKTG97"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+getDatabase(app);
+const provider = new GoogleAuthProvider();
+const googleBtn = document.getElementById("googleBtn");
+const guestBtn = document.getElementById("guestBtn");
+const keyPanel = document.getElementById("keyPanel");
+const guestKey = document.getElementById("guestKey");
+const verifyBtn = document.getElementById("verifyBtn");
+const cancelKeyBtn = document.getElementById("cancelKeyBtn");
+const statusBox = document.getElementById("status");
+let redirecting = false;
+
+function setBusy(busy, message="") {
+  googleBtn.disabled = busy;
+  guestBtn.disabled = busy;
+  verifyBtn.disabled = busy;
+  googleBtn.disabled = busy;
+  statusBox.textContent = message;
+}
+function enterMain() { window.location.replace("./main.html"); }
+
+try {
+  const result = await getRedirectResult(auth);
+  if (result && result.user) enterMain();
+} catch (error) {
+  console.error("Google sign-in redirect error:", error);
+  statusBox.textContent = readableError(error);
+}
+onAuthStateChanged(auth, user => {
+  if (user && !redirecting) enterMain();
+});
+googleBtn.addEventListener("click", async () => {
+  redirecting = true;
+  setBusy(true, "Opening Google sign-in…");
+  try {
+    await signInWithRedirect(auth, provider);
+  } catch (error) {
+    redirecting = false;
+    setBusy(false, readableError(error));
+  }
+});
+guestBtn.addEventListener("click", () => {
+  keyPanel.classList.add("show");
+  guestKey.focus();
+  statusBox.textContent = "";
+});
+cancelKeyBtn.addEventListener("click", () => {
+  keyPanel.classList.remove("show");
+  guestKey.value = "";
+  statusBox.textContent = "";
+});
+verifyBtn.addEventListener("click", async () => {
+  // UI-only gate: a key embedded in a static HTML file is visible to visitors.
+  // Use server-side verification for real access control.
+  if (guestKey.value.trim() !== "RG-FF-SECURITY-KEY") {
+    statusBox.textContent = "Incorrect security key. Please try again.";
+    guestKey.focus();
+    return;
+  }
+  setBusy(true, "Verifying guest access…");
+  try {
+    await signInAnonymously(auth);
+    enterMain();
+  } catch (error) {
+    setBusy(false, readableError(error));
+  }
+});
+guestKey.addEventListener("keydown", event => {
+  if (event.key === "Enter") verifyBtn.click();
+});
+function readableError(error) {
+  const messages = {
+    "auth/unauthorized-domain": "This website domain is not authorized yet. Add it in Firebase Authentication → Settings → Authorized domains.",
+    "auth/operation-not-allowed": "This sign-in method is not enabled. Turn on Google and Anonymous sign-in in Firebase Authentication.",
+    "auth/network-request-failed": "Network problem. Check your internet connection and try again.",
+    "auth/popup-blocked": "The browser blocked sign-in. Allow redirects/pop-ups and try again."
+  };
+  return messages[error?.code] || `Sign-in failed: ${error?.message || "Please try again."}`;
+}
+</script>
+</body>
+</html>
