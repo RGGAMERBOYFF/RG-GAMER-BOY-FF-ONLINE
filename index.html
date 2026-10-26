@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#b91c1c">
+<meta name="google-site-verification" content="9wkAEcV9sUYPh6LRgwqlzvUlGSVTWeDZyaNxR89J69c" />
+<meta name="description" content="RG GAMER BOY FF — continue to the main gaming website.">
+<title>RG GAMER BOY FF | Continue</title>
+<style>
+:root{--red:#c51f2b;--dark:#171717;--muted:#666;--line:#e5e7eb;--bg:#f4f4f5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at top,#3b1115,#171717 55%);font-family:Arial,sans-serif;color:#171717;display:flex;align-items:center;justify-content:center;padding:20px}
+.card{width:min(100%,560px);background:#fff;border-radius:20px;padding:clamp(22px,5vw,38px);box-shadow:0 24px 80px #0005}
+.brand{display:flex;align-items:center;gap:12px;margin-bottom:22px}.logo{width:48px;height:48px;border-radius:12px;background:var(--red);color:#fff;display:grid;place-items:center;font-weight:900;font-size:20px}.brand h1{font-size:clamp(18px,4vw,24px);margin:0;letter-spacing:.4px}.eyebrow{color:var(--red);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}h2{font-size:clamp(24px,5vw,32px);line-height:1.2;margin:8px 0 12px}p{color:var(--muted);line-height:1.6}.steps{display:grid;gap:10px;margin:22px 0}.step{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:13px}.num{width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:#fff0f1;color:var(--red);font-weight:900;display:grid;place-items:center}.step strong{display:block;margin:2px 0 4px}.step small{color:var(--muted);line-height:1.5}.actions{display:grid;gap:10px;margin-top:22px}button,a.button{width:100%;display:block;border:0;border-radius:10px;background:var(--red);color:#fff;text-align:center;padding:14px 18px;font-weight:800;text-decoration:none;font-size:16px;cursor:pointer}button:disabled{background:#aaa;cursor:not-allowed}.note{font-size:12px;text-align:center;margin-top:14px}.check{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#333;line-height:1.5}.check input{margin-top:3px;accent-color:var(--red);width:17px;height:17px}.status{min-height:20px;font-size:13px;color:var(--red);text-align:center;margin-top:8px}
+</style>
+</head>
+<body>
+<main class="card">
+ <div class="brand"><div class="logo">RG</div><h1>RG GAMER BOY FF</h1></div>
+ <div class="eyebrow">Welcome</div>
+ <h2>Before you continue</h2>
+ <p>Review these five quick notes before opening the main website. This page is a navigation screen only; it does not provide server-side access protection.</p>
+ <div class="steps">
+  <div class="step"><div class="num">1</div><div><strong>Browse responsibly</strong><small>Check game details before following any links.</small></div></div>
+  <div class="step"><div class="num">2</div><div><strong>Check the source</strong><small>Downloads may lead to third-party websites.</small></div></div>
+  <div class="step"><div class="num">3</div><div><strong>Protect your account</strong><small>Never share passwords or verification codes on unknown pages.</small></div></div>
+  <div class="step"><div class="num">4</div><div><strong>Review compatibility</strong><small>Confirm the file and device requirements before installing anything.</small></div></div>
+  <div class="step"><div class="num">5</div><div><strong>Continue when ready</strong><small>Confirm that you understand links may open external sites.</small></div></div>
+ </div>
+ <label class="check"><input id="confirm" type="checkbox"><span>I have read the notes above and want to continue to the main website.</span></label>
+ <div class="actions"><button id="continue" type="button" disabled>OPEN MAIN WEBSITE</button></div>
+ <div id="status" class="status" aria-live="polite"></div>
+ <p class="note">RG GAMER BOY FF · Independent gaming information website</p>
+</main>
+<script>
+const check=document.getElementById('confirm');
+const button=document.getElementById('continue');
+check.addEventListener('change',()=>{button.disabled=!check.checked;document.getElementById('status').textContent='';});
+button.addEventListener('click',()=>{if(check.checked)window.location.href='./main.html';});
+</script>
+</body>
+</html>
