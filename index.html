@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#050812">
+<title>RG Creator Hub</title>
+<style>
+:root{--bg:#050812;--panel:#0c1425;--line:#293752;--text:#eff5ff;--muted:#9aaac4;--red:#ff465e;--green:#48e0a4;--blue:#60b5ff;--gold:#ffc857}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 8% 0%,#341020 0,transparent 35%),radial-gradient(ellipse at 100% 20%,#0b2c44 0,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1060px;margin:auto;padding:20px 15px 45px}.top{display:flex;justify-content:space-between;align-items:center;gap:10px}.brand{display:flex;align-items:center;gap:10px;font-weight:950;letter-spacing:.5px}.logo{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--red),#ff8e43);font-size:22px}.brand small{display:block;font-size:10px;letter-spacing:1.8px;color:var(--muted)}.badge{font-size:10px;font-weight:900;letter-spacing:1px;border:1px solid #65512e;background:#201a11;color:#ffdb8c;border-radius:99px;padding:7px 10px}
+.hero{padding:34px 0 20px}.eyebrow{color:var(--green);font-weight:900;font-size:11px;letter-spacing:2px}.hero h1{font-size:clamp(34px,7vw,57px);line-height:1.03;margin:12px 0;background:linear-gradient(90deg,#fff,#a8d6ff 55%,#ffb4bd);background-clip:text;color:transparent}.hero p{max-width:650px;color:var(--muted);line-height:1.65;margin:0}
+.card{background:linear-gradient(145deg,#101a2ddd,#080e1ddd);border:1px solid var(--line);border-radius:21px;padding:19px;box-shadow:0 16px 45px #0003}.status{margin:17px 0;padding:12px 14px;border-radius:12px;background:#0a1727;border:1px solid #233a54;color:#b9d7f6;font-size:12px;line-height:1.5}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:20px 0}.stat{background:#0a1425;border:1px solid var(--line);border-radius:16px;padding:14px}.symbol{font-size:24px}.num{font-size:27px;font-weight:950;margin:5px 0}.label{font-size:12px;color:var(--muted)}
+.section{display:flex;justify-content:space-between;align-items:end;gap:10px;margin:27px 0 13px}.section h2{font-size:21px;margin:0}.section span{font-size:12px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.task{display:flex;flex-direction:column;gap:11px;min-height:240px}.task-icon{width:48px;height:48px;border-radius:15px;background:#182640;border:1px solid #2d4364;display:grid;place-items:center;font-size:24px}.task h3{margin:0;font-size:17px}.task p{color:var(--muted);font-size:13px;line-height:1.55;margin:0;flex:1}.rewards{display:flex;gap:7px;flex-wrap:wrap}.rewards span{border:1px solid #31415d;border-radius:9px;padding:6px 9px;font-size:12px;font-weight:850;background:#0a1221}.cards{color:#84cbff}.coins{color:var(--gold)}.btn{border:0;border-radius:12px;padding:12px 15px;min-height:44px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:8px}.primary{background:linear-gradient(100deg,var(--red),#ff784d);color:#fff}.green{background:linear-gradient(100deg,#16b779,#5ae6ab);color:#04180f}.secondary{background:#14243b;border:1px solid #2e4564;color:#e2efff}.btn:disabled{opacity:.42;cursor:not-allowed;filter:grayscale(.5)}.full{width:100%}.progress{height:7px;border-radius:99px;background:#1a2940;overflow:hidden}.progress div{height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));transition:width .25s}.field{width:100%;padding:12px;border-radius:11px;border:1px solid #344460;background:#050b17;color:#fff;outline:none}.field:focus{border-color:var(--blue)}textarea{resize:vertical}.notice{font-size:12px;line-height:1.65;color:var(--muted);margin-top:17px}.footer{text-align:center;color:#6f809c;font-size:11px;line-height:1.7;margin-top:30px}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);max-width:92%;background:#17243a;border:1px solid #344b6b;padding:12px 16px;border-radius:12px;box-shadow:0 12px 40px #0008;z-index:9;font-size:13px}.hidden{display:none!important}
+@media(min-width:700px){.stats{grid-template-columns:repeat(4,minmax(0,1fr))}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:430px){.grid{grid-template-columns:1fr}.card{padding:16px}.badge{font-size:9px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><div class="brand"><div class="logo">🔥</div><div>RG CREATOR HUB<small>TOOLS • REWARDS • COMMUNITY</small></div></div><div class="badge">PRIVATE TESTING</div></header>
+<section class="hero"><div class="eyebrow">WELCOME TO YOUR CREATOR SPACE</div><h1>Create. Earn.<br>Level Up.</h1><p>Gaming tools and reward tasks for the RG community. Access is handled by your existing bot flow; this page does not ask for an extra access key.</p></section>
+<div id="status" class="status">Connecting to Firebase…</div>
+<section class="stats">
+<div class="stat"><div class="symbol">🎴</div><div class="num" id="cards">—</div><div class="label">Cards balance</div></div>
+<div class="stat"><div class="symbol">🪙</div><div class="num" id="coins">—</div><div class="label">SuperCoins balance</div></div>
+<div class="stat"><div class="symbol">▶️</div><div class="num" id="ads">— / 10</div><div class="label">Global ad claims</div></div>
+<div class="stat"><div class="symbol">🎁</div><div class="num" id="special">—</div><div class="label">Weekly special task</div></div>
+</section>
+<div class="section"><h2>Earn Rewards</h2><span>Testing build</span></div>
+<div class="grid">
+<article class="card task"><div class="task-icon">▶️</div><h3>Watch Our Video</h3><p>Open the RG GAMER BOY FF video. Rewards are shown for testing only; a link opening does not prove that the video was watched.</p><div class="rewards"><span class="cards">🎴 +5 Cards</span><span class="coins">🪙 +0.2 SuperCoins</span></div><div class="progress"><div id="progress"></div></div><button class="btn primary" id="watch" disabled>Loading…</button></article>
+<article class="card task"><div class="task-icon">⭐</div><h3>Subscribe — Special Offer</h3><p>Visit the official channel. The offer is one claim per authenticated user per seven days in this test build. Subscription is not verified.</p><div class="rewards"><span class="cards">🎴 +8 Cards</span><span class="coins">🪙 +0.5 SuperCoins</span></div><button class="btn green" id="specialBtn" disabled>Loading…</button></article>
+<article class="card task"><div class="task-icon">✍️</div><h3>Gaming Bio Generator</h3><p>Generates sample bios locally in your browser. No AI API is used.</p><input id="bioName" class="field" placeholder="Your gaming name"><button class="btn secondary" id="bioBtn">Generate Bio</button><textarea id="bioOutput" class="field" rows="3" placeholder="Your bio will appear here" readonly></textarea><button class="btn secondary" id="copyBio">Copy Bio</button></article>
+</div>
+<p class="notice">This is a testing version. Firebase connection uses your project configuration, but production-safe reward enforcement requires trusted server-side code (such as Cloud Functions). Do not use this prototype to issue valuable rewards: client-side rules alone cannot safely verify YouTube views/subscriptions or protect a global campaign counter from abuse.</p>
+<footer class="footer">RG GAMER BOY FF • RG CREATOR HUB<br>Private testing build — do not share publicly before launch.</footer>
+</div><div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+import { getDatabase, ref, get, set, update, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDTyYnD3BuGscMsajttDmO1uHdCBxACVyM",
+  authDomain: "rg-gamer-boy-backend.firebaseapp.com",
+  databaseURL: "https://rg-gamer-boy-backend-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "rg-gamer-boy-backend",
+  storageBucket: "rg-gamer-boy-backend.firebasestorage.app",
+  messagingSenderId: "1064165237495",
+  appId: "1:1064165237495:web:cb2fed75dfc844509e69f2",
+  measurementId: "G-XFJ3DKTG97"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+const VIDEO_URL = "https://youtu.be/4K8j5_3VEHE?si=ba27HK7iqNcBpnUW";
+const CHANNEL_URL = "https://www.youtube.com/@RG_GAMER_BOY_FF";
+const WEEK = 7 * 24 * 60 * 60 * 1000;
+let currentUser = null, busy = false, toastTimer;
+const $ = id => document.getElementById(id);
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");clearTimeout(toastTimer);toastTimer=setTimeout(()=>$("toast").classList.add("hidden"),3600)}
+function setStatus(msg, error=false){$("status").textContent=msg;$("status").style.borderColor=error?"#873a4a":"#233a54";$("status").style.color=error?"#ffb4bd":"#b9d7f6"}
+function lockButtons(){ $("watch").disabled=true;$("specialBtn").disabled=true;$("watch").textContent="Unavailable";$("specialBtn").textContent="Unavailable"; }
+function cleanOld(times){return (Array.isArray(times)?times:[]).filter(t=>Number.isFinite(t)&&Date.now()-t<WEEK)}
+async function loadState(uid){
+  const [uSnap,cSnap] = await Promise.all([get(ref(db,`users/${uid}`)),get(ref(db,"adCampaign"))]);
+  const u=uSnap.val()||{}, campaign=cSnap.val()||{};
+  $("cards").textContent=Number(u.cards||0);
+  $("coins").textContent=Number(u.superCoins||0).toFixed(1);
+  const times=cleanOld(u.adClaimTimes);
+  $("ads").textContent=`${Number(campaign.totalClaims||0)} / 10`;
+  $("progress").style.width=Math.min(100,Number(campaign.totalClaims||0)*10)+"%";
+  const globalFull=Number(campaign.totalClaims||0)>=10;
+  const userFull=times.length>=2;
+  $("watch").disabled=busy||globalFull||userFull;
+  $("watch").textContent=globalFull?"Campaign Limit Reached":userFull?"Weekly Limit Reached":"Watch Video & Claim (TEST)";
+  const specialAt=Number(u.specialClaimAt||0), available=!specialAt||Date.now()-specialAt>=WEEK;
+  $("special").textContent=available?"Available":"Claimed";
+  $("specialBtn").disabled=busy||!available;
+  $("specialBtn").textContent=available?"Open Channel & Claim (TEST)":"Available After 7 Days";
+}
+async function refresh(){if(!currentUser)return;try{await loadState(currentUser.uid)}catch(e){setStatus("Firebase read failed: "+friendly(e),true);lockButtons()}}
+function friendly(e){if(e?.code==="PERMISSION_DENIED"||String(e?.message).includes("PERMISSION_DENIED"))return "Permission denied. Your Realtime Database Rules currently block this request; rules/backend must be configured before testing.";return e?.message||"Unknown error"}
+async function claimAd(){
+  if(!currentUser||busy)return;busy=true;await refresh();
+  try{
+    const uid=currentUser.uid, userRef=ref(db,`users/${uid}`), campaignRef=ref(db,"adCampaign");
+    let accepted=false, reason="";
+    // Demo-only: global transaction prevents two simultaneous clicks overshooting 10,
+    // but client-writable rules are not secure enough for a public launch.
+    const cResult=await runTransaction(campaignRef, cur=>{
+      cur=cur||{totalClaims:0};
+      if(Number(cur.totalClaims||0)>=10){reason="The global 10-ad campaign limit has been reached.";return;}
+      cur.totalClaims=Number(cur.totalClaims||0)+1;cur.lastClaimAt=Date.now();accepted=true;return cur;
+    });
+    if(!cResult.committed){throw new Error(reason||"Campaign limit reached.")}
+    const uResult=await runTransaction(userRef, cur=>{
+      cur=cur||{cards:0,superCoins:0,adClaimTimes:[]};
+      const times=cleanOld(cur.adClaimTimes);
+      if(times.length>=2){reason="You have already used your two ad claims in the last seven days.";return;}
+      times.push(Date.now());cur.adClaimTimes=times;cur.cards=Number(cur.cards||0)+5;cur.superCoins=Math.round((Number(cur.superCoins||0)+0.2)*10)/10;return cur;
+    });
+    if(!uResult.committed){
+      // Release the reserved global slot if per-user limit rejects the claim.
+      await runTransaction(campaignRef,cur=>{if(!cur)return cur;cur.totalClaims=Math.max(0,Number(cur.totalClaims||0)-1);return cur});
+      throw new Error(reason||"Could not claim reward.");
+    }
+    window.open(VIDEO_URL,"_blank","noopener,noreferrer");
+    toast("TEST reward added: +5 Cards and +0.2 SuperCoins. Video completion is not verified.");
+    await refresh();
+  }catch(e){toast(friendly(e));setStatus(friendly(e),true)}finally{busy=false;await refresh()}
+}
+async function claimSpecial(){
+  if(!currentUser||busy)return;busy=true;
+  try{
+    const uid=currentUser.uid,userRef=ref(db,`users/${uid}`);let reason="";
+    const result=await runTransaction(userRef,cur=>{
+      cur=cur||{cards:0,superCoins:0};
+      const at=Number(cur.specialClaimAt||0);
+      if(at&&Date.now()-at<WEEK){reason="This special offer was already claimed in the last seven days.";return;}
+      cur.specialClaimAt=Date.now();cur.cards=Number(cur.cards||0)+8;cur.superCoins=Math.round((Number(cur.superCoins||0)+0.5)*10)/10;return cur;
+    });
+    if(!result.committed)throw new Error(reason||"Special task could not be claimed.");
+    window.open(CHANNEL_URL,"_blank","noopener,noreferrer");
+    toast("TEST reward added: +8 Cards and +0.5 SuperCoins. Subscription is not verified.");
+    await refresh();
+  }catch(e){toast(friendly(e));setStatus(friendly(e),true)}finally{busy=false;await refresh()}
+}
+$("watch").addEventListener("click",claimAd);
+$("specialBtn").addEventListener("click",claimSpecial);
+$("bioBtn").addEventListener("click",()=>{const n=$("bioName").value.trim()||"YOUR NAME";$("bioOutput").value=`亗 ${n} 亗\n⚡ Gaming • Skill • Respect\n🔥 RG Creator Hub`;});
+$("copyBio").addEventListener("click",async()=>{const v=$("bioOutput").value;if(!v)return toast("Generate a bio first.");try{await navigator.clipboard.writeText(v);toast("Bio copied!")}catch{$("bioOutput").select();toast("Select the text and copy it.")}});
+onAuthStateChanged(auth,async user=>{
+  if(user){currentUser=user;setStatus("Connected to Firebase as anonymous user. Rewards are TEST ONLY.");try{await loadState(user.uid)}catch(e){setStatus("Firebase connection error: "+friendly(e),true);lockButtons()}}
+});
+try{await signInAnonymously(auth)}catch(e){setStatus("Firebase sign-in failed: "+friendly(e),true);lockButtons()}
+</script></body></html>
