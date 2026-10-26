@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#b91c1c">
+<meta name="description" content="RG GAMER BOY FF gaming hub: game information, version details, download guides, and fan-made offline Free Fire projects. Independent fan information website.">
+<title>RG GAMER BOY FF | Game Information &amp; Download Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+:root{--red:#c51f2b;--red2:#991b1b;--ink:#171717;--muted:#6b7280;--paper:#fff;--bg:#f5f5f5;--line:#e5e7eb;--yellow:#ffc107}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"Exo 2","Trebuchet MS",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a{color:inherit}
+.topbar{height:5px;background:var(--red)}
+header{background:#fff;position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line)}
+.header-inner{max-width:1120px;margin:auto;display:flex;align-items:center;gap:16px;padding:13px 18px}
+.iconbtn{border:0;background:transparent;font-size:27px;cursor:pointer;width:40px;height:42px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:1;min-width:0}
+.logo{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;background:var(--red);color:white;font-weight:900;font-size:20px;box-shadow:0 4px 10px #c51f2b33}
+.brand-name{font-family:"Orbitron","Exo 2",sans-serif;font-size:clamp(16px,3vw,25px);font-weight:900;font-style:normal;letter-spacing:.7px;line-height:1.15;text-transform:uppercase;text-shadow:0 1px 0 #fff,0 3px 12px #c51f2b24}
+.searchbox{display:none;max-width:1120px;margin:auto;padding:0 18px 14px}.searchbox.show{display:block}.searchbox input{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px}
+.layout{max-width:1120px;margin:24px auto;padding:0 18px;display:grid;grid-template-columns:1fr;gap:24px}
+.sidebar{display:none;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;height:max-content}
+.sidebar.open{display:block;position:fixed;z-index:20;top:75px;left:12px;right:12px;box-shadow:0 16px 50px #0002}
+.sidebar h3{margin:2px 10px 12px;font-size:12px;letter-spacing:1.4px;color:var(--muted)}
+.navlink{display:block;text-decoration:none;padding:12px 10px;border-radius:9px;font-weight:700}.navlink:hover,.navlink.active{background:#fff0f1;color:var(--red)}
+.content{min-width:0}.section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:0 0 14px}.section-title h1,.section-title h2{margin:0;font-size:24px}.section-title p{margin:3px 0 0;color:var(--muted);font-size:14px}
+.hero{background:linear-gradient(125deg,#171717,#3b1115 65%,#b91c1c);color:#fff;border-radius:16px;padding:28px 24px;margin-bottom:25px;overflow:hidden;position:relative}
+.hero:after{content:"RG";position:absolute;right:10px;bottom:-45px;font-size:150px;font-weight:900;color:#ffffff0d;pointer-events:none}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:2px;color:#ffb7bd}.hero h1{font-size:clamp(27px,5vw,42px);line-height:1.1;margin:8px 0 12px;max-width:650px}.hero p{color:#f3dfe1;max-width:600px;margin:0 0 18px}.primary{display:inline-block;background:var(--red);color:white;border:0;border-radius:9px;padding:11px 16px;text-decoration:none;font-weight:800;cursor:pointer}.primary:hover{background:var(--red2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;cursor:pointer}.chip.active{background:var(--red);color:#fff;border-color:var(--red)}
+.games{display:grid;grid-template-columns:1fr;gap:15px}.download-list{display:grid;grid-template-columns:1fr;gap:15px}.download-card{background:#fff;border:1px solid #dedede;border-radius:22px;padding:24px 20px;text-align:center;cursor:pointer}.download-card .download-target-highlight{outline:3px solid var(--red);outline-offset:5px;border-radius:12px}.download-card img{display:block;width:auto;max-width:100%;height:auto;max-height:180px;object-fit:contain;object-position:center;border:3px solid var(--game-accent);border-radius:18px;padding:5px;box-sizing:border-box;background:var(--game-tint);margin:0 auto 16px}.download-card h3{font-size:21px;margin:0 0 12px;font-weight:900;letter-spacing:.3px;text-shadow:0 1px 0 #fff}.download-status{display:inline-block;margin:0 0 16px;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:1px}.download-status.online{background:#dcfce7;color:#166534;border:1px solid #bbf7d0}.download-status.offline{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}.detail-title-accent{background:linear-gradient(90deg,#991b1b,#ef4444);-webkit-background-clip:text;background-clip:text;color:transparent}.detail-callout{padding:14px 16px;border:1px solid #fecaca;background:#fff1f2;border-radius:12px;color:#7f1d1d;font-weight:700;margin:16px 0}.download-card .download-main{margin:0;background:linear-gradient(135deg,#ffd54a,#ffb800);border:1px solid #e0ae00;padding:21px 18px;border-radius:12px;font-size:21px;font-weight:900;letter-spacing:1.2px;min-height:62px;box-shadow:0 5px 0 #d49b00,0 8px 18px #d49b0026}.game-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:transform .15s,box-shadow .15s}.game-card:hover{transform:translateY(-2px);box-shadow:0 8px 22px #0000000b}.game-status{display:inline-block;margin:0 0 12px;padding:7px 10px;border-radius:7px;font-size:12px;font-weight:900;line-height:1.35}.private-status{background:#fee2e2;color:#991b1b;border:1px solid #fecaca}.official-status{background:#dcfce7;color:#166534;border:1px solid #bbf7d0}
+.art{height:170px;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,#222,#7f1d1d)}
+.game-art-image{display:block;width:100%;height:auto;max-width:100%;max-height:none;object-fit:contain;object-position:center;margin:0 auto;border:0;border-radius:0;padding:0;box-sizing:border-box;background:transparent}.art-fallback{min-height:170px;height:170px;display:grid;place-items:center;color:#fff;position:relative;overflow:hidden;background:linear-gradient(135deg,#222,#7f1d1d)}.art-fallback .tag{position:absolute;left:12px;top:12px;background:var(--red);padding:4px 8px;border-radius:5px;font-size:11px;font-weight:800;letter-spacing:.5px}.art:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 75% 15%,#ffffff35,transparent 32%),linear-gradient(120deg,transparent 25%,#ffffff0b 25% 50%,transparent 50% 75%,#ffffff0b 75%)}
+.art .art-title{position:relative;text-align:center;padding:16px;font-size:23px;font-weight:900;text-shadow:0 2px 10px #0006;line-height:1.1}
+.art .tag{position:absolute;left:12px;top:12px;background:var(--red);padding:4px 8px;border-radius:5px;font-size:11px;font-weight:800;letter-spacing:.5px}
+.art.football{background:linear-gradient(135deg,#075985,#16a34a)}.art.block{background:linear-gradient(135deg,#166534,#65a30d)}.art.horror{background:linear-gradient(135deg,#111827,#6b21a8)}.art.casual{background:linear-gradient(135deg,#0369a1,#db2777)}.art.pc{background:linear-gradient(135deg,#374151,#1d4ed8)}
+.card-body{padding:15px;display:flex;flex-direction:column;flex:1}.card-body h3{font-size:18px;margin:0 0 5px;line-height:1.25}.meta{font-size:12px;color:var(--muted);margin-bottom:9px}.card-body p{font-size:14px;color:#555;margin:0 0 14px;flex:1}.card-actions{display:flex;gap:8px}.card-actions button{flex:1}.secondary{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-weight:800;cursor:pointer}.secondary:hover{border-color:var(--red);color:var(--red)}
+/* Distinctive gaming typography: geometric display headings + readable body text */
+.section-title h1,.section-title h2,.hero h1,.detail-top h1,.detail-section h2{
+ font-family:"Orbitron","Exo 2",sans-serif;
+ font-weight:800;letter-spacing:.45px;line-height:1.25;
+}
+.navlink,.primary,.secondary,.download-main,.link-button,.chip,.back{
+ font-family:"Rajdhani","Exo 2",sans-serif;
+ font-weight:700;letter-spacing:1px;text-transform:uppercase;
+}
+.card-body h3,.download-card h3{
+ font-family:"Orbitron","Exo 2",sans-serif;
+ font-weight:800;letter-spacing:.25px;line-height:1.35;
+}
+.hero .eyebrow{font-family:"Rajdhani","Exo 2",sans-serif;font-weight:700;letter-spacing:2.8px;text-transform:uppercase}
+.card-body p,.detail-section p,.detail-section li{line-height:1.8;letter-spacing:.12px}
+.section-title p,.meta,.detail-top p{font-family:"Exo 2",sans-serif;letter-spacing:.15px}
+.download-main{font-size:19px;text-shadow:0 1px 0 #ffffff60;box-shadow:0 5px 0 #d49b00;transition:transform .15s,box-shadow .15s}
+.download-main:active{transform:translateY(2px);box-shadow:0 3px 0 #d49b00}
+@media(max-width:649px){
+ .brand-name{letter-spacing:.35px;text-shadow:0 2px 10px #c51f2b1a}
+ .section-title h1,.section-title h2{letter-spacing:.2px;font-size:22px}
+ .primary,.secondary,.download-main,.link-button{font-weight:700}
+}
+
+.notice{background:#fff8e1;border:1px solid #f2d675;color:#654d00;border-radius:12px;padding:13px 15px;font-size:13px;margin:20px 0}
+.page-panel{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px}.detail-top .detail-image{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;margin:0 auto 16px}.detail-top{text-align:center;padding:14px 0 22px;border-bottom:1px solid var(--line)}.detail-icon{width:112px;height:112px;border-radius:24px;display:grid;place-items:center;margin:0 auto 12px;color:white;background:linear-gradient(135deg,#222,#b91c1c);font-size:29px;font-weight:900;text-align:center;padding:10px}.detail-top h1{font-size:26px;margin:0 0 7px}.detail-top p{color:var(--muted);margin:0}.download-main{display:block;width:100%;margin:22px auto;background:linear-gradient(135deg,#ffd54a,#ffb800);color:#171717;border:1px solid #e0a600;border-radius:14px;padding:20px 18px;font-size:21px;font-weight:900;letter-spacing:1.2px;cursor:pointer;box-shadow:0 5px 0 #d49b00,0 8px 18px #d49b0026;transition:transform .15s,box-shadow .15s,filter .15s}.download-main:hover{filter:brightness(1.03);transform:translateY(-1px);box-shadow:0 6px 0 #d49b00,0 10px 20px #d49b0030}.download-main:active{transform:translateY(3px);box-shadow:0 2px 0 #d49b00}.detail-section{margin:24px 0}.detail-section h2{font-size:22px;margin:0 0 10px}.detail-section p,.detail-section li{color:#555}.info-table{width:100%;border-collapse:collapse}.info-table th,.info-table td{text-align:left;padding:11px 8px;border-bottom:1px solid var(--line);vertical-align:top}.info-table th{width:38%;color:#555;font-weight:700}.link-row{display:flex;flex-direction:column;align-items:stretch;gap:13px}.link-button{display:flex;align-items:center;justify-content:center;width:100%;box-sizing:border-box;padding:16px 20px;min-height:54px;border-radius:11px;text-decoration:none;background:#16a34a;color:#fff;font-weight:800;text-align:center}.link-button.purple{background:linear-gradient(135deg,#6366f1,#4338ca);box-shadow:0 5px 0 #3730a3;padding:19px 22px;min-height:64px;font-size:20px;letter-spacing:1.2px}.link-button.gray{background:#374151}
+/* Subtle game/version-based tints for game detail and download cards */
+.page-panel.theme-freefire,.download-card.theme-freefire{background:linear-gradient(160deg,#fff 0%,#fff1f2 100%);border-color:#fecaca}
+.page-panel.theme-football,.download-card.theme-football{background:linear-gradient(160deg,#fff 0%,#ecfdf5 100%);border-color:#bbf7d0}
+.page-panel.theme-block,.download-card.theme-block{background:linear-gradient(160deg,#fff 0%,#f0fdf4 100%);border-color:#bbf7d0}
+.page-panel.theme-horror,.download-card.theme-horror{background:linear-gradient(160deg,#fff 0%,#f5f3ff 100%);border-color:#ddd6fe}
+.page-panel.theme-casual,.download-card.theme-casual{background:linear-gradient(160deg,#fff 0%,#eff6ff 100%);border-color:#bfdbfe}
+.page-panel.theme-pc,.download-card.theme-pc{background:linear-gradient(160deg,#fff 0%,#eff6ff 100%);border-color:#bfdbfe}
+
+/* Per-game colors: every game card, download card, and detail page gets its own accent and tinted background. */
+.game-card.game-colored{border:2px solid var(--game-accent);background:linear-gradient(155deg,var(--game-tint) 0%,#fff 78%);box-shadow:0 3px 14px color-mix(in srgb,var(--game-accent) 12%,transparent)}
+.game-card.game-colored .card-body h3,.download-card.game-colored h3{color:var(--game-accent)}
+.game-card.game-colored .primary{background:var(--game-accent);box-shadow:0 3px 0 color-mix(in srgb,var(--game-accent) 72%,#000)}
+.download-card.game-colored{border:2px solid var(--game-accent);background:linear-gradient(155deg,var(--game-tint) 0%,#fff 78%);box-shadow:0 5px 18px color-mix(in srgb,var(--game-accent) 13%,transparent)}
+.download-card.game-colored .download-target-highlight{outline-color:var(--game-accent)}
+.page-panel.game-colored{border:2px solid var(--game-accent);background:linear-gradient(155deg,var(--game-tint) 0%,#fff 82%);box-shadow:0 8px 28px color-mix(in srgb,var(--game-accent) 13%,transparent)}
+.page-panel.game-colored .detail-top{border-bottom-color:color-mix(in srgb,var(--game-accent) 28%,#fff)}
+.page-panel.game-colored .detail-title-accent{background:linear-gradient(90deg,var(--game-accent),color-mix(in srgb,var(--game-accent) 48%,#fff));-webkit-background-clip:text;background-clip:text;color:transparent}
+.page-panel.game-colored .detail-section h2{color:var(--game-accent)}
+.page-panel.game-colored .info-table th,.page-panel.game-colored .info-table td{border-bottom-color:color-mix(in srgb,var(--game-accent) 18%,#fff)}
+.horror-warning{padding:15px 16px;border:2px solid #b91c1c;background:linear-gradient(135deg,#fff1f2,#fef2f2);border-radius:13px;color:#7f1d1d;font-weight:700;margin:17px 0;box-shadow:0 4px 14px #b91c1c12}
+.horror-warning strong{display:block;font-family:"Orbitron","Exo 2",sans-serif;margin-bottom:5px;letter-spacing:.4px}
+.empty{background:#fff;border:1px dashed #d1d5db;border-radius:12px;padding:22px;color:var(--muted);text-align:center}
+footer{background:#171717;color:#ddd;margin-top:35px;padding:28px 18px}.footer-inner{max-width:1120px;margin:auto}.footer-inner strong{color:#fff}.footer-inner p{font-size:13px;color:#c4c4c4;max-width:800px}.footer-links{display:flex;gap:15px;flex-wrap:wrap}.footer-links a{color:#fff;font-size:13px}
+.hidden{display:none!important}.back{margin-bottom:15px;background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px;cursor:pointer;font-weight:700}
+@media(min-width:650px){.layout{grid-template-columns:220px minmax(0,1fr)}.sidebar{display:block;position:sticky;top:92px}.sidebar.open{position:sticky;box-shadow:none}.games{grid-template-columns:repeat(2,minmax(0,1fr))}.art{height:190px}.brand-name{font-size:27px}.searchbox{padding-left:18px;padding-right:18px}}
+@media(min-width:950px){.games{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{padding:38px}.art{height:175px}}
+body{visibility:hidden}
+</style>
+</head>
+<body>
+<div class="topbar"></div>
+<header>
+ <div class="header-inner">
+  <button class="iconbtn" id="menuBtn" aria-label="Open menu">☰</button>
+  <a href="#home" class="brand" aria-label="RG GAMER BOY FF home"><span class="logo"><img src="https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/fb332346-c385-4925-85ad-9b35cf8a10da.png" alt="RG" style="width:100%;height:100%;object-fit:contain;border-radius:inherit"></span><span class="brand-name">RG GAMER BOY FF</span></a>
+  <button class="iconbtn" id="searchBtn" aria-label="Search">⌕</button>
+  <button id="logoutBtn" type="button" class="primary" style="padding:9px 12px;white-space:nowrap;font-size:14px" aria-label="Log out">Log out</button>
+ </div>
+ <div class="searchbox" id="searchBox"><input id="searchInput" type="search" placeholder="Search games..." aria-label="Search games"></div>
+</header>
+<div class="layout">
+ <nav class="sidebar" id="sidebar" aria-label="Main navigation">
+  <h3>MENU</h3>
+  <a class="navlink active" href="#home" data-nav="home">⌂ &nbsp; HOME</a>
+  <a class="navlink" href="#gaming" data-nav="gaming">🎮 &nbsp; GAMING</a>
+  <a class="navlink" href="#tips" data-nav="tips">💡 &nbsp; TIPS &amp; GUIDE</a>
+  <a class="navlink" href="#download" data-nav="download">⇩ &nbsp; DOWNLOAD</a>
+  <a class="navlink" href="#about" data-nav="about">ⓘ &nbsp; WEBSITE DETAILS</a>
+ </nav>
+ <main class="content">
+  <section id="homeView">
+   <div class="hero">
+    <div class="eyebrow">WELCOME TO THE GAMING HUB</div>
+    <h1>Discover Games.<br>Explore Your Next Adventure.</h1>
+    <p>Game information, version details, platform guides and download links — all in one place.</p>
+    <a href="#gaming" class="primary">EXPLORE GAMES</a>
+   </div>
+   <div class="section-title"><div><h1>Featured Games</h1><p>Explore our featured game collection.</p></div></div>
+   <div class="chips" id="filters">
+    <button class="chip active" data-filter="All">All Games</button><button class="chip" data-filter="Free Fire">Free Fire</button><button class="chip" data-filter="Football">Football</button><button class="chip" data-filter="Horror">Horror</button><button class="chip" data-filter="Adventure">Adventure</button><button class="chip" data-filter="PC">PC Games</button>
+   </div>
+   <div class="games" id="gameGrid"></div>
+  </section>
+  <section id="gamingView" class="hidden">
+   <div class="section-title"><div><h1>Gaming</h1><p>Explore online and featured games with platform and version details. Offline-only projects are listed in Download, not here.</p></div></div>
+   <div class="chips" id="gamingFilters">
+    <button class="chip active" data-filter="All">All Games</button><button class="chip" data-filter="Free Fire">Free Fire</button><button class="chip" data-filter="Football">Football</button><button class="chip" data-filter="Horror">Horror</button><button class="chip" data-filter="Adventure">Adventure</button><button class="chip" data-filter="PC">PC Games</button>
+   </div>
+   <div class="games" id="gamingGrid"></div>
+  </section>
+  <section id="downloadView" class="hidden"><div class="section-title"><div><h1>Download</h1><p>Select a game to view its details and download options.</p></div></div><div class="download-list" id="downloadGrid"></div></section>
+  <section id="detailView" class="hidden">
+   <button class="back" id="backBtn">← Back to games</button>
+   <div id="detailContent"></div>
+  </section>
+  <section id="infoView" class="hidden">
+   <div class="section-title"><div><h1 id="infoTitle">Website Details</h1><p>Helpful information about this website.</p></div></div>
+   <div class="page-panel" id="infoContent"></div>
+  </section>
+ </main>
+</div>
+<footer><div class="footer-inner">
+ <strong>RG GAMER BOY FF</strong>
+ <p>Independent gaming information hub with game details, version information and third-party download links. FREE FIRE 2.5.9, FREE FIRE 2.6.1, FREE FIRE 1.0.1 and SIGMAX are listed as unofficial fan-made/offline projects; they are shown in Download only and are not official Garena games. FFIBR is an unofficial fan-made listing. This website is not affiliated with or endorsed by Garena, KONAMI, EA, Mojang/Microsoft, or other publishers. All trademarks belong to their respective owners.</p>
+ <div class="footer-links"><a href="#about">Website Details</a><a href="#tips">Tips &amp; Guide</a><a href="#download">Download</a></div>
+ <p>Download links will be added after they are supplied and checked. Availability, versions, prices and compatibility may vary by region and device.</p>
+ <p>© <span id="year"></span> RG GAMER BOY FF</p>
+</div></footer>
+<script>
+const games = [
+ {id:"ff2019",status:"ONLINE",showHome:true,name:"FREE FIRE 2019",category:"Free Fire",genre:"Battle Royale",platform:"Android",format:"To be confirmed",version:"Historical version — to be confirmed",updated:"Not verified",description:"A classic-era Free Fire listing for players looking for information about the 2019 experience.",theme:"",short:"FF 2019",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/d2377de9-6b53-41f3-b145-82d01e22cda3.jpg",download:"https://rggamerboyff.github.io/RG-GAMER-BOY-FF-2022-APP/",how:["PRIVATE PROJECT — NOT AN OFFICIAL GAME.","This private project is not published or supported by Garena.","Review the source and file carefully before downloading or installing."]},
+ {id:"ff2020",status:"ONLINE",showHome:true,name:"FREE FIRE 2020",category:"Free Fire",genre:"Battle Royale",platform:"Android",format:"To be confirmed",version:"2020 version — to be confirmed",updated:"Not verified",description:"A separate listing for Free Fire's 2020-era content, with historical details to be verified.",theme:"",short:"FF 2020",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/cec1f0f8-b0a1-4582-9ea6-192f7f84cf93.png",download:"https://rggamerboyff.github.io/RG-GAMER-BOY-FF-2022-APP/",how:["PRIVATE PROJECT — NOT AN OFFICIAL GAME.","This private project is not published or supported by Garena.","Review the source and file carefully before downloading or installing."]},
+ {id:"ff2023",status:"ONLINE",showHome:true,name:"FREE FIRE 2023",category:"Free Fire",genre:"Battle Royale",platform:"Android",format:"To be confirmed",version:"2023 version — to be confirmed",updated:"Not verified",description:"A Free Fire 2023 listing with version details and download options to be added.",theme:"",short:"FF 2023",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/08d115cd-495f-4001-abd6-7a7dc6c951d2.png",download:"https://rggamerboyff01.github.io/FREE-FIRE-PRIVATE-SERVER-2023/",how:["PRIVATE PROJECT — NOT AN OFFICIAL GAME.","This private project is not published or supported by Garena.","Review the source and file carefully before downloading or installing."]},
+ {id:"ff259-offline",name:"FREE FIRE 2.5.9",category:"Free Fire",genre:"Fan-made offline project",platform:"Android",format:"APK file",version:"2.5.9",updated:"Not independently verified",status:"OFFLINE",showHome:false,fanMade:true,price:"As listed on the supplied download page",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/ebff7acc-4c27-4b07-aa1e-de307613bd2d.jpg",download:"https://www.mediafire.com/file/jw71uqxa1pzy2a5/Free_Fire_Offline_2.5.9.apk/file",discord:"https://discord.gg/fDJq8DkFQ7",description:"FREE FIRE 2.5.9 is presented as a fan-made project for fun and offline play. It is not an official Garena game and is not an online multiplayer game. The supplied file and its compatibility have not been independently verified.",overview:"A fan-made, offline-only project listed for entertainment. It is not an official Garena release and does not provide official online multiplayer or Garena support.",features:["Fan-made project; not an official Garena release.","Intended for fun and offline play only.","Not an online game and does not provide online multiplayer.","The supplied APK page, file source, safety, and compatibility have not been independently verified."],how:["Review the fan-made and offline-only notice.","Open the supplied MediaFire page and review the file details.","Only proceed if you trust the source and understand this is not an official Garena game."],official:null},
+{id:"ff261-offline",name:"FREE FIRE 2.6.1",category:"Free Fire",genre:"Fan-made offline project",platform:"Android",format:"APK file",version:"2.6.1",updated:"Not independently verified",status:"OFFLINE",showHome:false,fanMade:true,price:"As listed on the supplied download page",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/ebff7acc-4c27-4b07-aa1e-de307613bd2d.jpg",download:"https://www.mediafire.com/file/slcq59254sytjkv/Free_Fire_Offline_2.6.1.apk/file",discord:"https://discord.gg/fDJq8DkFQ7",description:"FREE FIRE 2.6.1 is presented as a fan-made project for fun and offline play. It is not an official Garena game and is not an online multiplayer game. The supplied file and its compatibility have not been independently verified.",overview:"A fan-made, offline-only project listed for entertainment. It is not an official Garena release and does not provide official online multiplayer or Garena support.",features:["Fan-made project; not an official Garena release.","Intended for fun and offline play only.","Not an online game and does not provide online multiplayer.","The supplied APK page, file source, safety, and compatibility have not been independently verified."],how:["Review the fan-made and offline-only notice.","Open the supplied MediaFire page and review the file details.","Only proceed if you trust the source and understand this is not an official Garena game."],official:null},
+{id:"ffibr",status:"70% Offline · 30% Online",showHome:true,fanMade:true,name:"FFIBR (FREE FIRE INDIA)",category:"Free Fire",genre:"Unofficial fan-made game",platform:"Android",format:"APK file",version:"FFIBR",updated:"Not independently verified",description:"An unofficial fan-made game listing. The supplied file and its safety have not been independently verified.",overview:"Unofficial fan-made game. The download source, file safety, and claimed functionality have not been independently verified.",short:"FFIBR",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/6a1cd48b-506a-4f6f-8ff6-3a8408d5345e.jpg",download:"https://yDsFAR.short.gy/GnvwKT",discord:"https://discord.gg/8WJDCEGZDs",features:["Unofficial fan-made game; not an official Garena release.","The supplied download file has not been independently checked."],how:["Review the unofficial fan-made game notice.","Open the supplied download page and inspect the file details.","Only continue if you trust the source."],official:null},
+{id:"ff101",status:"OFFLINE",showHome:false,fanMade:true,name:"FREE FIRE 1.0.1",category:"Free Fire",genre:"Fan-made project",platform:"Android",format:"APK file",version:"1.0.1",updated:"Not independently verified",description:"A fan-made Free Fire 1.0.1 listing. Offline behavior and file safety have not been independently verified.",overview:"Listed as an offline fan-made project; the APK and its behavior have not been independently verified.",short:"FF 1.0.1",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/aeeb1ade-437b-4e27-847c-4d342fac4595.jpg",download:"https://www.mediafire.com/file/220r9m8bj5dciyb/Free_Fire_Offline_1.0.1.apk/file",discord:"https://discord.gg/8WJDCEGZDs",features:["Unofficial fan-made project; not an official Garena release.","Offline functionality and file safety have not been independently verified."],how:["Review the fan-made project notice.","Inspect the supplied MediaFire page and file details.","Only install if you trust the source."],official:null},
+{id:"sigmax",status:"OFFLINE",showHome:false,fanMade:true,name:"SIGMAX",category:"Free Fire",genre:"Fan-made project",platform:"Android",format:"APK file",version:"1.0.0",updated:"Not independently verified",description:"A SIGMAX listing. Offline behavior and file safety have not been independently verified.",overview:"Listed as an offline fan-made project; the APK and its behavior have not been independently verified.",short:"SIGMAX",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/4bb08a8d-328a-48c9-8f62-daab809f0952.jpg",download:"https://www.mediafire.com/file/9yr5268sztaw6dx/SIGMAX_v1.0.0.apk/file",discord:"https://discord.gg/8WJDCEGZDs",features:["Unofficial fan-made project; not an official Garena release.","Offline functionality and file safety have not been independently verified."],how:["Review the fan-made project notice.","Inspect the supplied MediaFire page and file details.","Only install if you trust the source."],official:null},
+{id:"efootball-mobile",status:"ONLINE",showHome:true,name:"eFootball Mobile",category:"Football",genre:"Football",platform:"Android / iOS",format:"Official store app",version:"Check official listing",updated:"Check official listing",description:"Play football, build your team and compete in matches in KONAMI's eFootball mobile game.",theme:"football",short:"eFootball",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/e62edfe2-45af-47fb-bb42-7418341acd30.jpg",official:"https://www.konami.com/efootball/",download:"https://play.google.com/store/apps/details?id=jp.konami.pesam",how:["Open the official KONAMI eFootball website.","Choose the mobile version and follow the official store link for your device.","Install the game from the supported store."]},
+ {id:"fc-mobile",status:"ONLINE",showHome:true,name:"EA SPORTS FC Mobile",category:"Football",genre:"Football",platform:"Android / iOS",format:"Official store app",version:"Check official listing",updated:"Check official listing",description:"A mobile football game featuring teams, players and football modes. Check the official listing for current availability.",theme:"football",short:"FC Mobile",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/42be8d50-7851-4625-b507-91419caf47c8.jpg",official:"https://www.ea.com/games/ea-sports-fc/fc-mobile",download:"https://play.google.com/store/apps/details?id=com.ea.gp.fifamobile",how:["Visit the official EA SPORTS FC Mobile page.","Open the store link for your device.","Check age rating and device requirements before installing."]},
+ {id:"ea-fc-pc",status:"ONLINE",showHome:true,name:"EA SPORTS FC (PC)",category:"PC",genre:"Football",platform:"PC",format:"PC installer / store version",version:"Depends on release",updated:"Check official listing",description:"Football gaming on PC. The exact title and system requirements depend on the release.",theme:"pc",short:"FC PC",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/5863c601-77e3-4695-97f0-483bcda80ce9.jpg",official:"https://www.ea.com/games/ea-sports-fc",download:"https://www.ea.com/games/ea-sports-fc",how:["Open the official EA SPORTS FC website.","Select a PC release and review its system requirements.","Purchase or install through an official supported store."]},
+ {id:"forza-horizon-5",status:"ONLINE",showHome:true,name:"Forza Horizon 5",category:"PC",genre:"Open-world racing / driving",platform:"Windows PC",format:"Official PC store version",version:"Check official store for current version",updated:"Check official store",description:"Explore an open-world version of Mexico, collect cars, and take part in races and driving challenges. The game has single-player and online multiplayer features; an internet connection is required.",overview:"Forza Horizon 5 is an open-world racing game set in Mexico. It supports solo play and online multiplayer, but the official Steam listing says a persistent internet connection is required, so it should not be described as fully offline.",gameMode:"Single-player and online multiplayer; persistent internet connection required",theme:"pc",short:"FORZA HORIZON 5",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/3f8e99b3-27e7-47f5-90e9-5602fcfa0210.jpg",official:"https://forza.net/",download:"https://store.steampowered.com/app/1551360/Forza_Horizon_5/",how:["Check the official store page for the current edition, price, and system requirements.","Make sure your Windows PC meets the game's requirements and has enough storage.","Use the official store page to purchase or install the game."]},
+
+ {id:"dream-league-soccer-2026",status:"ONLINE",showHome:true,name:"Dream League Soccer 2026",category:"Football",genre:"Football",platform:"Android",format:"Official Google Play app",version:"Check official listing",updated:"Check official listing",description:"Build your dream football team and play matches in Dream League Soccer 2026. Check Google Play for current details and compatibility.",theme:"football",short:"DLS 2026",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/6fcb3cd1-6722-47ef-946d-5024d8805ffb.jpg",official:null,download:"https://play.google.com/store/apps/details?id=com.firsttouchgames.dls7",how:["Open the official Google Play listing.","Review the current game details and device compatibility.","Install the game through Google Play if it is available for your device."]},
+ {id:"football-league-2026",status:"ONLINE",showHome:true,name:"Football League 2026",category:"Football",genre:"Football",platform:"Android",format:"Official Google Play app",version:"Check official listing",updated:"Check official listing",description:"Build a football team and play matches in Football League 2026. The game listing describes online and offline play; check Google Play for current details.",theme:"football",short:"FL 2026",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/a7ae440c-07a1-4582-b02c-f3c54bb6e7aa.jpg",official:null,download:"https://play.google.com/store/apps/details?id=com.football.soccer.league",how:["Open the official Google Play listing.","Review the current game details and device compatibility.","Install the game through Google Play if it is available for your device."]},
+ {id:"minecraft",status:"ONLINE",showHome:true,name:"Minecraft",category:"Adventure",genre:"Creative / Survival",platform:"Mobile / PC / Console (varies)",format:"Official store version",version:"Check official listing",updated:"Check official listing",description:"Explore, build and create in a block-based world. Editions and features vary by platform.",theme:"block",short:"MINECRAFT",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/00a49ff9-2b87-4468-a558-4b135f1c9edb.jpg",official:"https://www.minecraft.net/download",download:"https://play.google.com/store/apps/details?id=com.mojang.minecraftpe",how:["Visit the official Minecraft website.","Choose the edition and platform that match your device.","Follow the official store's purchase or installation process."]},
+ {id:"minecraft-trial",status:"OFFLINE",showHome:true,name:"Minecraft Trial",category:"Adventure",genre:"Sandbox / Survival Trial",platform:"Android",format:"Official Google Play app",version:"Check official listing",updated:"Check official listing",description:"Try Minecraft in a free, time-limited single-player survival trial. Offline play is supported after installation; internet access is needed to download the app.",overview:"Minecraft Trial is a free, time-limited single-player survival experience from Mojang. Trial worlds do not transfer to the full game.",theme:"block",short:"MINECRAFT TRIAL",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/f7426dc1-b6bb-41f0-82e4-52775e0bb773.jpg",official:"https://www.minecraft.net/en-us/free-trial",download:"https://play.google.com/store/apps/details?id=com.mojang.minecrafttrialpe",how:["Open the official Minecraft free-trial website or Google Play listing.","Check the app's age rating and device compatibility.","Install the trial from Google Play. Offline play is available after installation; online multiplayer servers are not included in the trial."]},
+ {id:"granny",status:"ONLINE",showHome:true,name:"Granny",category:"Horror",genre:"Survival Horror",platform:"Android",format:"Official Google Play app",version:"Check official listing",updated:"Check official listing",description:"A first-person survival horror game. Check the official Google Play listing for current details, age rating and compatibility.",theme:"horror",short:"GRANNY",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/42a7f9c1-2750-4925-b74e-66b18ad01ec3.jpg",official:null,download:"https://play.google.com/store/apps/details?id=com.dvloper.granny",how:["Open the official Google Play listing.","Check the age rating and device compatibility.","Install through Google Play if it is available for your device."]},
+ {id:"eyes-horror",status:"ONLINE",showHome:true,name:"Eyes: The Horror Game",category:"Horror",genre:"Survival Horror",platform:"Android",format:"Official Google Play app",version:"Check official listing",updated:"Check official listing",description:"Explore a horror-themed game with single-player and other modes listed by its publisher. Check Google Play for current details, age rating and compatibility.",theme:"horror",short:"EYES",image:"https://i.supaimg.com/d9c7f586-ce17-4c79-9667-6ede2824ff5b/4eb4923b-d1ad-45f8-b308-b2d855cbba82.jpg",official:null,download:"https://play.google.com/store/apps/details?id=com.eyesthegame.eyes",how:["Open the official Google Play listing.","Check the age rating and device compatibility.","Install through Google Play if it is available for your device."]},
+];
+let activeFilter="All", gamingFilter="All", currentGame=null, previousGameView="homeView", detailSource="browse";
+const grid=document.getElementById("gameGrid");
+const gamingGrid=document.getElementById("gamingGrid");
+const safe = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function gameThemeClass(g){return g.category==="Free Fire"?"theme-freefire":(["football","block","horror","casual","pc"].includes(g.theme)?"theme-"+g.theme:"");}
+function gamePalette(g){
+ const id=String(g.id||"").toLowerCase(), name=String(g.name||"").toLowerCase();
+ const exact={
+  "ff2019":["#fdba74","#fff7ed"],
+  "ff2020":["#ef4444","#fff1f2"],
+  "ff2023":["#dc2626","#fef2f2"],
+  "ff259-offline":["#fb923c","#fff7ed"],
+  "ff261-offline":["#c2410c","#fff7ed"],
+  "ffibr":["#0f766e","#f0fdfa"],
+  "ff101":["#b91c1c","#fff1f2"],
+  "sigmax":["#7c3aed","#f5f3ff"],
+  "efootball-mobile":["#4ade80","#f0fdf4"],
+  "fc-mobile":["#a21caf","#fdf4ff"],
+  "ea-fc-pc":["#0891b2","#ecfeff"],
+  "forza-horizon-5":["#2563eb","#eff6ff"],
+  "dream-league-soccer-2026":["#15803d","#f0fdf4"],
+  "football-league-2026":["#ca8a04","#fefce8"],
+  "minecraft":["#65a30d","#f7fee7"],
+  "minecraft-trial":["#84cc16","#ecfccb"],
+  "granny":["#991b1b","#fff1f2"],
+  "eyes-horror":["#6d28d9","#f5f3ff"]
+ };
+ if(exact[id])return exact[id];
+ if(g.category==="Horror"||g.theme==="horror"||name.includes("horror"))return ["#7c3aed","#f5f3ff"];
+ if(g.category==="Football"||g.theme==="football")return ["#16a34a","#f0fdf4"];
+ if(g.category==="PC"||g.theme==="pc")return ["#2563eb","#eff6ff"];
+ if(g.theme==="block"||name.includes("minecraft"))return ["#65a30d","#f7fee7"];
+ if(g.category==="Free Fire"||name.includes("free fire"))return ["#ea580c","#fff7ed"];
+ if(g.theme==="casual")return ["#db2777","#fdf2f8"];
+ const palette=[["#0891b2","#ecfeff"],["#0d9488","#f0fdfa"],["#9333ea","#faf5ff"],["#4f46e5","#eef2ff"],["#ca8a04","#fefce8"]];
+ let hash=0;for(let i=0;i<id.length;i++)hash=(hash*31+id.charCodeAt(i))>>>0;return palette[hash%palette.length];
+}
+function gameColorStyle(g){const p=gamePalette(g);return `--game-accent:${p[0]};--game-tint:${p[1]}`;}
+function isHorrorGame(g){return g.category==="Horror"||g.theme==="horror"||/horror/i.test(String(g.genre||"")+" "+String(g.name||""));}
+function card(g){const status=g.status||"ONLINE";return `<article class="game-card game-colored" style="${gameColorStyle(g)}" data-category="${safe(g.category)}" data-name="${safe(g.name.toLowerCase())}" onclick="openGame('${g.id}')" role="button" tabindex="0"><div class="art ${safe(g.theme)}" style="height:auto;min-height:0;display:block;overflow:visible;background:none">${g.image?`<img class="game-art-image" src="${safe(g.image)}" alt="${safe(g.name)}" loading="lazy">`:`<div class="art-fallback ${safe(g.theme)}"><span class="tag">${safe(g.platform.includes("PC")?"PC":"GAME")}</span><div class="art-title">${safe(g.short)}</div></div>`}</div><div class="card-body"><h3>${safe(g.name)}</h3><p class="game-status ${status==="OFFLINE"?'private-status':'official-status'}">${safe(status)}${g.fanMade?' — FAN-MADE / NOT OFFICIAL':''}</p><div class="card-actions"><span class="primary" style="text-align:center;width:100%">VIEW DETAILS</span></div></div></article>`}
+function renderGames(){const q=document.getElementById("searchInput").value.trim().toLowerCase();const filtered=games.filter(g=>g.showHome!==false&&(activeFilter==="All"||g.category===activeFilter||(activeFilter==="Football"&&g.genre==="Football"))&&(`${g.name} ${g.description} ${g.genre} ${g.platform}`).toLowerCase().includes(q));grid.innerHTML=filtered.map(card).join("")||'<div class="empty">No games found. Try another search.</div>';renderGamingGames()}
+function gamingCard(g){
+ const status=g.status||"ONLINE";
+ return `<article class="game-card game-colored" style="${gameColorStyle(g)}" data-category="${safe(g.category)}" data-name="${safe(g.name.toLowerCase())}">
+  <div class="art ${safe(g.theme)}" style="height:auto;min-height:0;display:block;overflow:visible;background:none">${g.image?`<img class="game-art-image" src="${safe(g.image)}" alt="${safe(g.name)}" loading="lazy">`:`<div class="art-fallback ${safe(g.theme)}"><span class="tag">${safe(g.platform.includes("PC")?"PC":"GAME")}</span><div class="art-title">${safe(g.short)}</div></div>`}</div>
+  <div class="card-body">
+   <h3>${safe(g.name)}</h3>
+   <p class="game-status ${status==="OFFLINE"?'private-status':'official-status'}">${safe(status)}${g.fanMade?' — FAN-MADE / NOT OFFICIAL':''}</p>
+   <p><strong>Genre:</strong> ${safe(g.genre)}<br><strong>Platform:</strong> ${safe(g.platform)}<br><strong>Version:</strong> ${safe(g.version)}</p>
+   <p>${safe(g.overview||g.description||"Game information will be updated when verified.")}</p>
+   <div class="card-actions">
+    <button class="primary" type="button" onclick="openGame('${g.id}')">GAME DETAILS</button>
+    ${g.official?`<a class="secondary" style="flex:1;text-align:center;text-decoration:none" href="${safe(g.official)}" target="_blank" rel="noopener noreferrer">OFFICIAL WEBSITE ↗</a>`:""}
+   </div>
+  </div>
+ </article>`;
+}
+function renderGamingGames(){const q=document.getElementById("searchInput").value.trim().toLowerCase();const filtered=games.filter(g=>(g.status!=="OFFLINE"||g.id==="minecraft-trial")&&(gamingFilter==="All"||g.category===gamingFilter||(gamingFilter==="Football"&&g.genre==="Football"))&&(`${g.name} ${g.description||""} ${g.overview||""} ${g.genre} ${g.platform} ${g.version||""}`).toLowerCase().includes(q));gamingGrid.innerHTML=filtered.map(gamingCard).join("")||'<div class="empty">No games found. Try another search.</div>'}
+function showView(id){["homeView","gamingView","downloadView","detailView","infoView"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));window.scrollTo({top:0,behavior:"smooth"});document.getElementById("sidebar").classList.remove("open")}
+function openGame(id, source="browse"){const g=games.find(x=>x.id===id);if(!g)return;detailSource=source;previousGameView=source==="download"?"downloadView":(document.getElementById("gamingView").classList.contains("hidden")?"homeView":"gamingView");currentGame=g;showView("detailView");const status=g.status||"ONLINE",isFan=!!g.fanMade;document.getElementById("detailContent").innerHTML=`
+ <div class="page-panel game-colored ${gameThemeClass(g)}" style="${gameColorStyle(g)}"><div class="detail-top">${g.image?`<img class="detail-icon detail-image" src="${safe(g.image)}" alt="${safe(g.name)}" style="object-fit:contain;display:block;width:100%;height:auto;max-height:none;max-width:320px;border:3px solid var(--game-accent);border-radius:22px;padding:5px;background:var(--game-tint);box-sizing:border-box">`:`<div class="detail-icon">${safe(g.short).replace(/\n/g,"<br>")}</div>`}<h1 class="detail-title-accent">${safe(g.name)}</h1><p>${safe(g.genre)} · ${safe(g.platform)}</p><p class="game-status ${status==="OFFLINE"?'private-status':'official-status'}" style="margin-top:12px">${safe(status)}${isFan?' — FAN-MADE / NOT OFFICIAL':''}</p></div>
+ ${source==="download"&&(g.id==="ff2019"||g.id==="ff2020")?`<div class="detail-callout" role="note" style="margin:16px 0 18px;border:2px solid #b91c1c;background:#fff1f2;color:#7f1d1d"><strong>⚠️ IMPORTANT DOWNLOAD WARNING</strong><br>This Free Fire version is an unofficial private project and is NOT an official Garena/Free Fire release. It is not endorsed by Garena. The DOWNLOAD LINK may open an external website that is not operated by RG GAMER BOY FF. We cannot independently verify the file hosted at that destination, including its safety, availability, or compatibility. Check the destination carefully before downloading.</div>`:""}
+ ${isHorrorGame(g)?`<div class="horror-warning" role="note"><strong>⚠️ HORROR GAME WARNING</strong>This game contains scary horror themes. If you are under 12 years old, or you get frightened easily, please do not play it. Check the official age rating and talk with a parent or guardian before playing.</div>`:""}
+ ${isFan?`<div class="detail-callout">Fan-made project • Offline only • For fun. This is not an official Garena Free Fire game and is not an online multiplayer game.</div>`:""}
+ ${source!=="download"?`<button class="download-main" onclick="downloadGame('${g.id}')">⇩ &nbsp; VIEW DOWNLOAD PAGE</button>`:""}
+ <div class="detail-section"><h2>Overview</h2><p>${safe(g.overview||g.description)}</p></div>
+ ${isFan?`<div class="detail-section"><h2>Important Information</h2><ul>${g.features.map(s=>`<li>${safe(s)}</li>`).join("")}</ul><p><strong>Disclaimer:</strong> Free Fire and Garena are trademarks of their respective owners. This listing is not affiliated with, endorsed by, or supported by Garena. The download file, source, safety, and compatibility have not been independently verified.</p></div>`:""}
+ <div class="detail-section"><h2>Game Information</h2><table class="info-table"><tr><th>Game Name</th><td>${safe(g.name)}</td></tr><tr><th>Version</th><td>${safe(g.version)}</td></tr><tr><th>Platform</th><td>${safe(g.platform)}</td></tr><tr><th>Format</th><td>${safe(g.format)}</td></tr><tr><th>Last Updated</th><td>${safe(g.updated)}</td></tr><tr><th>Price</th><td>${safe(g.price||"Check the official store")}</td></tr><tr><th>Category</th><td>${safe(g.genre)}</td></tr><tr><th>Game Mode</th><td>${safe(g.gameMode||(status==="OFFLINE"?"Offline only":"Online"))}</td></tr></table></div>
+ <div class="detail-section"><h2>Download Game</h2><p>${isFan?"Review the information above before opening the supplied file page.":"Use the official website or supported app store whenever possible. Review publisher information before downloading."}</p><div class="link-row">${source==="download"?(g.download?`<a class="link-button purple" href="${safe(g.download)}" target="_blank" rel="noopener noreferrer">⇩ &nbsp; DOWNLOAD ↗</a>`:`<button class="link-button purple" onclick="alert('The download link for this game has not been added yet.')">DOWNLOAD LINK PENDING</button>`):""}${g.official?`<a class="link-button" href="${safe(g.official)}" target="_blank" rel="noopener noreferrer">OFFICIAL WEBSITE ↗</a>`:""}${g.discord?`<a class="link-button gray" href="${safe(g.discord)}" target="_blank" rel="noopener noreferrer">JOIN DISCORD ↗</a>`:""}</div></div>
+ <div class="detail-section"><h2>How to Install</h2><ol>${g.how.map(s=>`<li>${safe(s)}</li>`).join("")}</ol></div>
+ <div class="notice"><strong>Safety note:</strong> The supplied fan-made APK links have not been independently verified. Only download files from sources you trust, and check compatibility before installing. These are not official Garena releases.</div></div>`}
+let captchaPendingUrl="",recaptchaWidgetId=null,recaptchaRenderInProgress=false,recaptchaWaitTimer=null,captchaVerified=false,captchaRedirectTimer=null,captchaRedirecting=false;
+const RECAPTCHA_SITE_KEY="6LfFUP4tAAAAAAczyGuP6Gwo216rhBExoTb9xZ8C";
+
+function clearCaptchaRedirectTimer(){
+  if(captchaRedirectTimer!==null){clearTimeout(captchaRedirectTimer);captchaRedirectTimer=null;}
+  captchaRedirecting=false;
+}
+function requireCaptcha(url){
+  if(!/^https:\/\//i.test(url)){alert("This destination is not a valid HTTPS link.");return;}
+  clearCaptchaRedirectTimer();
+  captchaPendingUrl=url;
+  captchaVerified=false;
+  const modal=document.getElementById("captchaModal");
+  modal.classList.remove("hidden");
+  const msg=document.getElementById("captchaMessage");
+  msg.textContent="Loading Google reCAPTCHA…";
+  msg.classList.remove("hidden","captcha-success");
+  document.getElementById("captchaRetry").classList.add("hidden");
+  tryRenderRecaptcha(0);
+}
+function onRecaptchaLoaded(){
+  if(captchaPendingUrl) tryRenderRecaptcha(0);
+}
+function recaptchaLoadFailed(){
+  recaptchaRenderInProgress=false;
+  const msg=document.getElementById("captchaMessage");
+  msg.textContent="Verification is temporarily unavailable. Please wait 2 minutes and try again, or refresh the page.";
+  msg.classList.remove("hidden","captcha-success");
+  document.getElementById("captchaRetry").classList.remove("hidden");
+}
+function retryCaptcha(){
+  clearCaptchaRedirectTimer();
+  captchaVerified=false;
+  recaptchaRenderInProgress=false;
+  document.getElementById("captchaMessage").textContent="Reloading Google reCAPTCHA…";
+  document.getElementById("captchaMessage").classList.remove("hidden","captcha-success");
+  document.getElementById("captchaRetry").classList.add("hidden");
+  if(recaptchaWaitTimer!==null){clearTimeout(recaptchaWaitTimer);recaptchaWaitTimer=null;}
+  if(recaptchaWidgetId!==null && window.grecaptcha){try{window.grecaptcha.reset(recaptchaWidgetId)}catch(e){}}
+  if(!window.grecaptcha || typeof window.grecaptcha.render!=="function"){
+    const oldScript=document.getElementById("googleRecaptchaScript");
+    if(oldScript) oldScript.remove();
+    const script=document.createElement("script");
+    script.id="googleRecaptchaScript";
+    script.src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit";
+    script.async=true;script.defer=true;
+    script.onerror=recaptchaLoadFailed;
+    document.body.appendChild(script);
+    recaptchaWaitTimer=setTimeout(()=>tryRenderRecaptcha(0),300);
+    return;
+  }
+  tryRenderRecaptcha(0);
+}
+function tryRenderRecaptcha(attempt){
+  if(!captchaPendingUrl || recaptchaRenderInProgress) return;
+  if(!RECAPTCHA_SITE_KEY || RECAPTCHA_SITE_KEY==="YOUR_GOOGLE_RECAPTCHA_SITE_KEY"){
+    document.getElementById("captchaMessage").textContent="Verification is temporarily unavailable. Please wait 2 minutes and try again, or refresh the page.";
+    document.getElementById("captchaMessage").classList.remove("hidden","captcha-success");
+    document.getElementById("captchaRetry").classList.add("hidden");
+    return;
+  }
+  if(!window.grecaptcha || typeof window.grecaptcha.render!=="function"){
+    if(attempt>=40){recaptchaLoadFailed();return;}
+    recaptchaWaitTimer=setTimeout(()=>tryRenderRecaptcha(attempt+1),250);
+    return;
+  }
+  const container=document.getElementById("recaptchaWidget");
+  container.innerHTML="";
+  recaptchaRenderInProgress=true;
+  recaptchaWidgetId=null;
+  try{
+    recaptchaWidgetId=window.grecaptcha.render(container,{
+      sitekey:RECAPTCHA_SITE_KEY,
+      theme:"light",
+      callback:function(token){
+        // Only Google's successful callback with a matching non-empty response may start the redirect.
+        if(captchaRedirecting || !captchaPendingUrl || !token || !window.grecaptcha || recaptchaWidgetId===null) return;
+        let response="";
+        try{response=window.grecaptcha.getResponse(recaptchaWidgetId)}catch(e){}
+        if(!response || response!==token) return;
+        const target=captchaPendingUrl;
+        if(!/^https:\/\//i.test(target)){
+          const msg=document.getElementById("captchaMessage");
+          msg.textContent="Invalid destination. Please try again.";
+          msg.classList.remove("hidden","captcha-success");
+          return;
+        }
+        captchaVerified=true;
+        captchaRedirecting=true;
+        const msg=document.getElementById("captchaMessage");
+        msg.textContent="✓ CAPTCHA verified successfully. Redirecting…";
+        msg.classList.remove("hidden");
+        msg.classList.add("captcha-success");
+        document.getElementById("captchaRetry").classList.add("hidden");
+        // Give the Google checkbox's success tick 500 ms to appear, then navigate to the requested destination.
+        captchaRedirectTimer=setTimeout(function(){
+          if(!captchaVerified || !captchaPendingUrl || captchaPendingUrl!==target) return;
+          captchaPendingUrl="";
+          captchaVerified=false;
+          captchaRedirectTimer=null;
+          captchaRedirecting=false;
+          window.location.assign(target);
+        },500);
+      },
+      "expired-callback":function(){
+        clearCaptchaRedirectTimer();
+        captchaVerified=false;
+        const msg=document.getElementById("captchaMessage");
+        msg.textContent="Verification expired. Please complete it again.";
+        msg.classList.remove("hidden","captcha-success");
+        document.getElementById("captchaRetry").classList.remove("hidden");
+      },
+      "error-callback":function(){
+        clearCaptchaRedirectTimer();
+        captchaVerified=false;
+        recaptchaRenderInProgress=false;
+        const msg=document.getElementById("captchaMessage");
+        msg.textContent="Verification is temporarily unavailable. Please wait 2 minutes and try again, or refresh the page.";
+        msg.classList.remove("hidden","captcha-success");
+        document.getElementById("captchaRetry").classList.remove("hidden");
+      }
+    });
+    document.getElementById("captchaMessage").classList.add("hidden");
+  }catch(err){
+    recaptchaRenderInProgress=false;
+    document.getElementById("captchaMessage").textContent="Verification is temporarily unavailable. Please wait 2 minutes and try again, or refresh the page.";
+    document.getElementById("captchaMessage").classList.remove("hidden","captcha-success");
+    document.getElementById("captchaRetry").classList.remove("hidden");
+  }
+}
+function closeCaptcha(){
+  clearCaptchaRedirectTimer();
+  document.getElementById("captchaModal").classList.add("hidden");
+  captchaPendingUrl="";
+  captchaVerified=false;
+  recaptchaRenderInProgress=false;
+  if(recaptchaWaitTimer!==null){clearTimeout(recaptchaWaitTimer);recaptchaWaitTimer=null;}
+  if(recaptchaWidgetId!==null && window.grecaptcha){try{window.grecaptcha.reset(recaptchaWidgetId)}catch(e){}}
+  recaptchaWidgetId=null;
+  document.getElementById("recaptchaWidget").innerHTML="";
+  document.getElementById("captchaMessage").classList.remove("captcha-success");
+}
+// When the visitor returns with the browser Back button, clear any stale CAPTCHA state so they can retry.
+window.addEventListener("pageshow",function(){
+  clearCaptchaRedirectTimer();
+  if(!document.getElementById("captchaModal").classList.contains("hidden")) closeCaptcha();
+  else {captchaPendingUrl="";captchaVerified=false;recaptchaRenderInProgress=false;}
+});
+function downloadGame(id){
+  const g=games.find(x=>x.id===id);
+  if(!g){return;}
+  renderDownloadList();
+  showView("downloadView");
+  const target=document.querySelector(`#downloadGrid .download-card [data-download-game="${g.id}"]`);
+  if(target){
+    target.scrollIntoView({behavior:"smooth",block:"center"});
+    target.classList.add("download-target-highlight");
+    setTimeout(()=>target.classList.remove("download-target-highlight"),1800);
+  }
+}
+document.addEventListener("click",function(e){
+  const a=e.target.closest("a.link-button.purple, a.link-button.gray");
+  if(!a)return;
+  e.preventDefault();
+  e.stopImmediatePropagation();
+  const href=a.getAttribute("href");
+  if(!href)return;
+  requireCaptcha(href);
+},true);
+function renderDownloadList(){document.getElementById("downloadGrid").innerHTML=games.map(g=>{const status=g.status||"ONLINE";return `<article class="download-card game-colored ${gameThemeClass(g)}" style="${gameColorStyle(g)}"><div data-download-game="${g.id}" onclick="openGame('${g.id}', 'download')" role="button" tabindex="0">${g.image?`<img src="${safe(g.image)}" alt="${safe(g.name)}" loading="lazy">`:`<div class="detail-icon">${safe(g.short)}</div>`}<h3>${safe(g.name)}</h3><span class="download-status ${status==="OFFLINE"?'offline':'online'}">${safe(status)}</span></div><button class="download-main" onclick="event.stopPropagation();openGame('${g.id}', 'download')">DOWNLOAD</button></article>`}).join("");}
+function showInfo(type){if(type==="download"){showView("downloadView");renderDownloadList();return;}showView("infoView");const data={
+ tips:["Tips & Guide","<h2>How to Use RG GAMER BOY FF</h2><ol><li>Open <strong>Home</strong> to browse featured games.</li><li>Open <strong>Gaming</strong> to explore online and featured titles. Minecraft Trial is included because its single-player trial supports offline play after installation.</li><li>Open <strong>Download</strong> to find offline game listings and the wider collection.</li><li>Tap a game card to read its details before choosing a download option.</li></ol><h2>Google reCAPTCHA</h2><p>Some link actions may ask you to complete Google reCAPTCHA. Select the <strong>I'm not a robot</strong> checkbox if shown and follow any challenge that Google presents. A challenge may not appear every time. If the widget does not load, check your internet connection, reload the page, allow Google reCAPTCHA scripts, and make sure the website domain is registered for the correct reCAPTCHA key.</p><h2>Online vs Offline Labels</h2><p><strong>ONLINE</strong> indicates a listing presented as an online/connected game. <strong>OFFLINE</strong> items are shown in Download only. FFIBR is displayed with the requested status <strong>70% Offline · 30% Online</strong>; this label is informational and has not been independently verified.</p><h2>Before Downloading</h2><ul><li>Check the game title, version, file type, and device requirements.</li><li>Read the game's detail page and the destination page carefully.</li><li>Only install files from sources you trust; third-party files may be unsafe or incompatible.</li><li>Do not share passwords, verification codes, or personal information on unknown pages.</li></ul><h2>Unofficial Game Projects</h2><p>Free Fire private projects and fan-made APKs are not official Garena releases and are not supported by Garena. This website does not guarantee the safety, operation, or availability of third-party downloads.</p><h2>Need Help?</h2><p>Use the Discord link shown on the relevant game details page for community information. Check links carefully before opening them.</p>"],
+ download:["Download","<p>Choose a game and tap DOWNLOAD to review its description, platform, version information and download options before leaving this website.</p>"],
+ about:["Website Details","<h2>About RG GAMER BOY FF</h2><p><strong>RG GAMER BOY FF</strong> is an independent gaming information website with game details, platform and version information, and links to supplied game pages.</p><h2>Google reCAPTCHA Verification</h2><p>Google reCAPTCHA is used on supported link actions to add a human-verification step and help reduce automated bot activity. The checkbox or challenge may vary depending on Google's checks, browser settings, connection, and registered website domain. reCAPTCHA does not guarantee that every part of the website is secure.</p><h2>Online and Offline Game Sections</h2><p>The Home and Gaming sections focus on online games and other featured titles. Most games marked <strong>OFFLINE</strong> are listed in Download only. Minecraft Trial is also featured in Home and Gaming because its single-player trial can be played offline after installation. FFIBR (FREE FIRE INDIA) is shown as an unofficial fan-made listing with the displayed status <strong>70% Offline · 30% Online</strong>; its actual functionality has not been independently verified.</p><h2>Independent and Unofficial Projects</h2><p>RG GAMER BOY FF is not affiliated with, endorsed by, or supported by Garena, KONAMI, EA, Mojang/Microsoft, Google, or other game publishers. Free Fire private projects and related listings are not official Garena games. All trademarks belong to their respective owners.</p><h2>Downloads and Accuracy</h2><p>Download links lead to third-party destinations. Version details, availability, file safety, and device compatibility may change and have not necessarily been independently verified. Review each game's details page and only download files from sources you trust.</p><h2>Community</h2><p>Use the Discord link shown on the relevant game details page to visit the community. Third-party links may change.</p>"],
+ gaming:["Gaming","<p>Browse games by category using the filters on the Home page. The collection includes Free Fire-era listings, football games, adventure games, horror games and PC titles.</p>"]
+};const [title,body]=data[type]||data.about;document.getElementById("infoTitle").textContent=title;document.getElementById("infoContent").innerHTML=body;document.getElementById("sidebar").querySelectorAll(".navlink").forEach(a=>a.classList.toggle("active",a.dataset.nav===type));}
+document.getElementById("filters").addEventListener("click",e=>{const b=e.target.closest("button[data-filter]");if(!b)return;activeFilter=b.dataset.filter;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));renderGames()});
+document.getElementById("searchBtn").addEventListener("click",()=>{document.getElementById("searchBox").classList.toggle("show");if(document.getElementById("searchBox").classList.contains("show"))document.getElementById("searchInput").focus()});
+document.getElementById("searchInput").addEventListener("input",renderGames);
+document.getElementById("gamingFilters").addEventListener("click",e=>{const b=e.target.closest("button[data-filter]");if(!b)return;gamingFilter=b.dataset.filter;document.querySelectorAll("#gamingFilters .chip").forEach(x=>x.classList.toggle("active",x===b));renderGamingGames()});
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("sidebar").classList.toggle("open"));
+document.getElementById("backBtn").addEventListener("click",()=>showView(previousGameView));
+document.querySelectorAll(".navlink").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const n=a.dataset.nav;if(n==="home"){showView("homeView")}else if(n==="gaming"){gamingFilter="All";document.querySelectorAll("#gamingFilters .chip").forEach(x=>x.classList.toggle("active",x.dataset.filter==="All"));renderGamingGames();showView("gamingView")}else showInfo(n);document.querySelectorAll(".navlink").forEach(x=>x.classList.toggle("active",x===a))}));
+document.querySelectorAll(".footer-links a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const n=a.getAttribute("href").slice(1);if(n==="about"||n==="tips"||n==="download")showInfo(n)}));
+document.getElementById("year").textContent=new Date().getFullYear();
+renderGames();
+</script>
+
+<div id="captchaModal" class="captcha-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="captchaHeading"><div class="captcha-box"><button type="button" class="captcha-close" aria-label="Close verification" onclick="closeCaptcha()">×</button><h2 id="captchaHeading">Human Verification</h2><div id="recaptchaWidget"></div><p id="captchaMessage" class="captcha-message hidden" aria-live="polite"></p><button id="captchaRetry" type="button" class="captcha-retry hidden" onclick="retryCaptcha()">RETRY reCAPTCHA</button></div></div>
+<script id="googleRecaptchaScript" src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoaded&render=explicit" async defer onerror="recaptchaLoadFailed()"></script>
+<style>.captcha-overlay{position:fixed;inset:0;background:#0009;z-index:9999;display:flex;align-items:center;justify-content:center;padding:18px}.captcha-box{position:relative;width:min(100%,420px);background:#fff;border-radius:16px;padding:24px 18px;text-align:center;box-shadow:0 20px 60px #0004}.captcha-box h2{margin:0 0 8px;font-size:22px}.captcha-box p{display:block}.captcha-close{position:absolute;right:12px;top:8px;border:0;background:transparent;font-size:28px;cursor:pointer}.captcha-message{font-size:13px!important;margin-top:12px!important;color:#b91c1c!important}.captcha-message.captcha-success{color:#15803d!important;font-weight:800}.captcha-retry{margin:10px auto 0;padding:10px 16px;border:0;border-radius:9px;background:#b91c1c;color:#fff;font-weight:800;cursor:pointer}.hidden{display:none!important}</style>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  const firebaseConfig = {
+    apiKey: "AIzaSyBJaK5nZMMMeCM8OaQyQcmVLcjkFDAaFHI",
+    authDomain: "rg-gamer-boy-auth.firebaseapp.com",
+    databaseURL: "https://rg-gamer-boy-auth-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "rg-gamer-boy-auth",
+    storageBucket: "rg-gamer-boy-auth.firebasestorage.app",
+    messagingSenderId: "160248868945",
+    appId: "1:160248868945:web:1a66b48f845df318d7c870",
+    measurementId: "G-X26078GV4L"
+  };
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  // Keep the main site hidden until Firebase confirms a signed-in user.
+  onAuthStateChanged(auth, user => {
+    if (!user) {
+      window.location.replace("./index.html");
+      return;
+    }
+    document.body.style.visibility = "visible";
+  }, error => {
+    console.error("Auth state check failed:", error);
+    window.location.replace("./index.html");
+  });
+  document.getElementById("logoutBtn")?.addEventListener("click", async () => {
+    const btn = document.getElementById("logoutBtn");
+    btn.disabled = true; btn.textContent = "Logging out…";
+    try {
+      await signOut(auth);
+      window.location.replace("./index.html?loggedout=1");
+    } catch (error) {
+      console.error("Firebase sign-out failed:", error);
+      btn.disabled = false; btn.textContent = "Log out";
+      alert("Logout failed. Please check your internet connection and try again.");
+    }
+  });
+</script>
+
+</body>
+</html>
