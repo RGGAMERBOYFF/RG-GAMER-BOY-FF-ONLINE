@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07101f">
+  <title>RG Gamer Boy FF | Extra Limit</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:radial-gradient(ellipse at top,rgba(35,99,190,.22),transparent 50%),#050a13;color:#f4f7ff;font-family:Arial,Helvetica,sans-serif}.card{width:min(100%,440px);padding:28px 22px;text-align:center;background:#0d1728;border:1px solid rgba(150,180,230,.2);border-radius:20px;box-shadow:0 18px 55px #0005}.logo{width:68px;height:68px;margin:0 auto 16px;display:grid;place-items:center;border-radius:50%;border:2px solid #3985ff;color:#16d99a;font-size:23px;font-weight:900}h1{font-size:25px;margin:0 0 12px}p{color:#9baac2;line-height:1.7;font-size:14px}.details{margin:20px 0;padding:15px;border-radius:12px;background:#111f34;text-align:left;color:#d9e5f8;font-size:13px;line-height:1.9}.ad-placeholder{margin:16px 0;padding:20px 12px;border:1px dashed #4a5e80;border-radius:12px;background:#0a1221;color:#aab9d3;font-size:13px;line-height:1.6}.btn{width:100%;padding:14px;border:0;border-radius:11px;background:linear-gradient(135deg,#08a96f,#18dca0);color:#03140e;font-weight:900;font-size:15px;cursor:pointer}.btn:disabled{opacity:.55;cursor:not-allowed}.back{display:block;margin-top:16px;color:#8eb8ff;text-decoration:none;font-size:13px}.status{min-height:22px;margin-top:12px;font-size:13px;color:#16d99a;line-height:1.5;overflow-wrap:anywhere}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">RG</div>
+    <h1>Free Plan <span style="color:#16d99a">Extra Limit</span></h1>
+    <p>After your ad/task is completed, press Continue to add one extra upload allowance to your Free Plan.</p>
+    <div class="ad-placeholder" id="adArea">Ad/task area<br><small>Add your ad network's official ad code here. The current page does not verify ad completion by itself.</small></div>
+    <div class="details">
+      • Standard limit: 10 uploads every 2 days<br>
+      • Extra allowance: up to 11 uploads in one day and 15 in the current 2-day period<br>
+      • Maximum 5 successful extra-limit claims per anonymous Firebase user<br>
+      • Each successful claim can be used once per 24 hours
+    </div>
+    <button class="btn" id="continueBtn" disabled>CONNECTING TO FIREBASE...</button>
+    <div class="status" id="status" role="status" aria-live="polite">Connecting securely...</div>
+    <a class="back" href="index.html">← Back to RG Image Pro</a>
+  </main>
+  <script type="module">
+    import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyC2Mvs5DOetUsUI8yxPekWOZF1N5dk_eoA",
+      authDomain: "rg-gamer-boy-ff-free-keys.firebaseapp.com",
+      databaseURL: "https://rg-gamer-boy-ff-free-keys-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "rg-gamer-boy-ff-free-keys",
+      storageBucket: "rg-gamer-boy-ff-free-keys.firebasestorage.app",
+      messagingSenderId: "242906503947",
+      appId: "1:242906503947:web:067387900b8078dcd7600e",
+      measurementId: "G-7YKESC9D2X"
+    };
+
+    const DAY_MS = 24 * 60 * 60 * 1000;
+    const button = document.getElementById("continueBtn");
+    const status = document.getElementById("status");
+    const message = text => status.textContent = text;
+    let db, uid, busy = false;
+
+    try {
+      const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      db = getDatabase(app);
+      const credential = auth.currentUser ? { user: auth.currentUser } : await signInAnonymously(auth);
+      uid = credential.user.uid;
+
+      if (localStorage.getItem("imageLinkProPlan") !== "free") {
+        message("Choose the Free Plan first, then return to this page.");
+        button.textContent = "FREE PLAN REQUIRED";
+        button.disabled = true;
+      } else {
+        const snap = await get(ref(db, `userExtraLimits/${uid}`));
+        const data = snap.val() || {};
+        const uses = Number(data.uses || 0);
+        const lastClaimAt = Number(data.lastClaimAt || 0);
+        if (uses >= 5) {
+          button.textContent = "LIMIT REACHED";
+          button.disabled = true;
+          message("All 5 extra-limit claims have been used for this Firebase anonymous account.");
+        } else if (lastClaimAt && Date.now() < lastClaimAt + DAY_MS) {
+          button.textContent = "ALREADY CLAIMED TODAY";
+          button.disabled = true;
+          message("You can claim the next extra allowance after 24 hours.");
+        } else {
+          button.textContent = "CONTINUE";
+          button.disabled = false;
+          message("Firebase connected. Continue to add one extra allowance.");
+        }
+      }
+    } catch (error) {
+      console.error(error);
+      button.textContent = "FIREBASE NOT READY";
+      button.disabled = true;
+      message("Firebase setup failed. Enable Anonymous Authentication and update the Realtime Database Rules.");
+    }
+
+    button.addEventListener("click", async () => {
+      if (busy || !db || !uid || localStorage.getItem("imageLinkProPlan") !== "free") return;
+      busy = true;
+      button.disabled = true;
+      button.textContent = "ADDING EXTRA SLOT...";
+      message("Saving your extra allowance to Firebase...");
+      const recordRef = ref(db, `userExtraLimits/${uid}`);
+      const now = Date.now();
+      let rejection = "";
+
+      try {
+        const result = await runTransaction(recordRef, current => {
+          const old = current || { uses: 0, slots: 0, activeUntil: 0, lastClaimAt: 0 };
+          const uses = Number(old.uses || 0);
+          const lastClaimAt = Number(old.lastClaimAt || 0);
+          if (uses >= 5) { rejection = "All 5 extra-limit claims have been used."; return; }
+          if (lastClaimAt && now < lastClaimAt + DAY_MS) { rejection = "You have already claimed an extra allowance in the last 24 hours."; return; }
+          return {
+            uses: uses + 1,
+            slots: Number(old.slots || 0) + 1,
+            activeUntil: now + DAY_MS,
+            lastClaimAt: now
+          };
+        }, { applyLocally: false });
+
+        if (!result.committed) {
+          message(rejection || "The claim was not accepted. Please try again later.");
+          button.textContent = "TRY LATER";
+          return;
+        }
+
+        const saved = result.snapshot.val() || {};
+        localStorage.setItem("imageLinkProFreeExtraUses", String(Number(saved.uses || 0)));
+        localStorage.setItem("imageLinkProFreeExtraSlots", String(Number(saved.slots || 0)));
+        localStorage.setItem("imageLinkProFreeExtraUntil", String(Number(saved.activeUntil || 0)));
+        message("Extra allowance saved! Returning to the main page...");
+        button.textContent = "SUCCESS";
+        setTimeout(() => { window.location.href = "index.html?extra=added"; }, 900);
+      } catch (error) {
+        console.error(error);
+        message("Could not save the allowance. Check Firebase Authentication and Database Rules.");
+        button.disabled = false;
+        button.textContent = "TRY AGAIN";
+      } finally {
+        busy = false;
+      }
+    });
+  </script>
+</body>
+</html>
