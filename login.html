@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b18"><title>RG GAMER BOY FF | Login</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 15%,#34206c,transparent 38%),radial-gradient(circle at 85% 80%,#651c35,transparent 36%),#080b18;color:white;font-family:Arial,sans-serif}.card{width:min(100%,430px);padding:26px;border:1px solid #ffffff26;border-radius:22px;background:#101629ed;box-shadow:0 22px 70px #0009;text-align:center}.brandimg{width:140px;height:140px;max-width:55%;object-fit:contain;border-radius:18px;margin:0 auto 14px;display:block}h1{font-size:clamp(22px,6vw,30px);margin:8px 0;letter-spacing:1px}p{color:#b9c3dc;font-size:14px;line-height:1.5}.tabs{display:flex;gap:8px;margin:22px 0 16px}.tabs button,.submit,.continue{border:0;border-radius:10px;padding:13px;font-weight:800;cursor:pointer}.tabs button{flex:1;background:#202b45;color:#dce5ff}.tabs button.active{background:#7546ed;color:white}input{width:100%;padding:14px;margin:8px 0;border:1px solid #394663;border-radius:10px;background:#080f20;color:white;font-size:16px;outline:none}input:focus{border-color:#9a7bff}.submit,.continue{width:100%;margin-top:12px;background:linear-gradient(100deg,#7546ed,#d12e75);color:white;font-size:16px}.small{font-size:12px;color:#98a6c5}.error{color:#ff8f9e;min-height:22px;font-size:13px}.hidden{display:none!important}
+</style></head><body><main class="card">
+<img class="brandimg" src="https://i.supaimg.com/cc740f2b-876c-4dd7-bbf2-16d636413b82/85320e1a-9a75-4178-90bb-a7f01267a661.png" alt="RG GAMER BOY FF Official">
+<h1>RG GAMER BOY FF</h1><p>Create an account or log in to your account.</p>
+<section id="authArea"><div class="tabs"><button id="signupTab" class="active" type="button">Sign Up</button><button id="loginTab" type="button">Login</button></div>
+<form id="authForm"><input id="username" autocomplete="username" minlength="5" maxlength="12" placeholder="Username (5–12 characters)" required>
+<input id="password" type="password" autocomplete="new-password" minlength="8" maxlength="15" placeholder="Password (8–15 characters)" required>
+<input id="confirm" type="password" autocomplete="new-password" minlength="8" maxlength="15" placeholder="Confirm Password" required>
+<button class="submit" id="submitBtn" type="submit">Create Account</button></form><p class="small">Username: 5–12 letters, numbers, or underscores. Password: 8–15 characters.</p></section>
+<section id="continueArea" class="hidden"><p>You are already logged in.</p><button class="continue" id="continueBtn" type="button">Continue</button><button id="logoutBtn" type="button" style="margin-top:12px;background:#29334b;color:white;border:0;border-radius:9px;padding:12px;width:100%">Logout</button></section><div class="error" id="message" role="status"></div></main>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import{getAuth,setPersistence,browserLocalPersistence,createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut}from"https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyD6hyR4O5Sfb3VWLq5k7RLtoKifI7aiLf8",authDomain:"rg-gamer-boy-ff-79de8.firebaseapp.com",databaseURL:"https://rg-gamer-boy-ff-79de8-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"rg-gamer-boy-ff-79de8",storageBucket:"rg-gamer-boy-ff-79de8.firebasestorage.app",messagingSenderId:"699276161086",appId:"1:699276161086:web:38531927307cddcc08a16f",measurementId:"G-TRX2QKQFQF"};
+const auth=getAuth(initializeApp(firebaseConfig));await setPersistence(auth,browserLocalPersistence);
+const $=id=>document.getElementById(id);let mode="signup";
+function setMode(m){mode=m;$("signupTab").classList.toggle("active",m==="signup");$("loginTab").classList.toggle("active",m==="login");$("confirm").classList.toggle("hidden",m!=="signup");$("confirm").required=m==="signup";$("submitBtn").textContent=m==="signup"?"Create Account":"Login";$("message").textContent=""}
+$("signupTab").onclick=()=>setMode("signup");$("loginTab").onclick=()=>setMode("login");
+const asEmail=u=>u.trim().toLowerCase()+"@username.rggamerboyff.invalid";
+function errorText(e){return({"auth/email-already-in-use":"This username is already taken.","auth/invalid-credential":"Incorrect username or password.","auth/weak-password":"Password must be 8–15 characters long.","auth/too-many-requests":"Too many attempts. Please try again later.","auth/network-request-failed":"Please check your internet connection."})[e.code]||"Please check the Firebase configuration. ("+e.code+")"}
+$("authForm").onsubmit=async e=>{e.preventDefault();$("message").textContent="";let u=$("username").value.trim(),p=$("password").value;if(!/^[A-Za-z0-9_]{5,12}$/.test(u)){$("message").textContent="Username must be 5–12 characters and may contain letters, numbers, or underscores.";return}if(p.length<8||p.length>15){$("message").textContent="Password must be 8–15 characters long.";return}if(mode==="signup"&&p!==$("confirm").value){$("message").textContent="The passwords do not match.";return}$("submitBtn").disabled=true;try{if(mode==="signup")await createUserWithEmailAndPassword(auth,asEmail(u),p);else await signInWithEmailAndPassword(auth,asEmail(u),p)}catch(err){$("message").textContent=errorText(err)}finally{$("submitBtn").disabled=false}};
+onAuthStateChanged(auth,user=>{if(user){$("authArea").classList.add("hidden");$("continueArea").classList.remove("hidden")}else{$("authArea").classList.remove("hidden");$("continueArea").classList.add("hidden")}});
+$("continueBtn").onclick=()=>{
+  if(!auth.currentUser){$("message").textContent="Your session has expired. Please log in again.";return}
+  $("continueBtn").disabled=true;
+  try{sessionStorage.setItem("rg_continue_once","1");location.href="index.html";}
+  catch(err){$("message").textContent="Unable to continue. Please allow session storage and try again.";$("continueBtn").disabled=false;}
+};
+$("logoutBtn").onclick=async()=>{
+  $("logoutBtn").disabled=true;$("message").textContent="";
+  try{await signOut(auth);$("authForm").reset();setMode("login");}
+  catch(err){$("message").textContent="Logout failed. Please try again.";}
+  finally{$("logoutBtn").disabled=false;}
+};
+</script></body></html>
