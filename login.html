@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RG GAMER BOY FF</title>
+
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 15%,#34206c,transparent 38%),radial-gradient(circle at 85% 80%,#651c35,transparent 36%),#080b18;color:#fff;font-family:Arial,sans-serif}.card{width:min(100%,430px);padding:26px;border:1px solid #ffffff26;border-radius:22px;background:#101629ed;box-shadow:0 22px 70px #0009;text-align:center}.brandimg{width:140px;height:140px;max-width:55%;object-fit:contain;border-radius:18px;margin:0 auto 14px;display:block}h1{font-size:clamp(22px,6vw,30px);margin:8px 0;letter-spacing:1px}p{color:#b9c3dc;font-size:14px;line-height:1.5}input{width:100%;padding:14px;margin:8px 0;border:1px solid #394663;border-radius:10px;background:#080f20;color:#fff;font-size:16px;outline:none}.submit,.continue{width:100%;margin-top:12px;padding:13px;border:0;border-radius:10px;background:linear-gradient(100deg,#7546ed,#d12e75);color:white;font-size:16px;font-weight:800;cursor:pointer}.small{font-size:12px;color:#98a6c5}.error{color:#ff8f9e;min-height:22px;font-size:13px}.hidden{display:none!important}
+</style></head><body><main class="card">
+<img class="brandimg" src="https://i.supaimg.com/cc740f2b-876c-4dd7-bbf2-16d636413b82/85320e1a-9a75-4178-90bb-a7f01267a661.png" alt="RG GAMER BOY FF Official">
+<h1>RG GAMER BOY FF</h1><p>Create your account to continue to the game.</p>
+<section id="createArea"><form id="createForm">
+<input id="username" autocomplete="username" minlength="5" maxlength="12" placeholder="Username (5–12 characters)" required>
+<input id="password" type="password" autocomplete="new-password" minlength="8" maxlength="15" placeholder="Password (8–15 characters)" required>
+<input id="confirm" type="password" autocomplete="new-password" minlength="8" maxlength="15" placeholder="Confirm Password" required>
+
+<button class="submit" id="createBtn" type="submit">Create Account</button></form>
+<p class="small">Username: 5–12 characters. Password: 8–15 characters.</p></section>
+<section id="welcomeArea" class="hidden"><p>Welcome Back!</p><button class="continue" id="continueBtn">Continue</button></section>
+<div class="error" id="message" role="status"></div></main>
+<script type="module">
+import{initializeApp}from"https://www.gstatic.com/firebasejs/13.2.0/firebase-app.js";
+import{getAuth,setPersistence,browserLocalPersistence,createUserWithEmailAndPassword,onAuthStateChanged}from"https://www.gstatic.com/firebasejs/13.2.0/firebase-auth.js";
+const firebaseConfig={apiKey:"AIzaSyD6hy4O5Sfb3VWLq5k7RLtoKifI7aiLf8",authDomain:"rg-gamer-boy-ff-79de8.firebaseapp.com",databaseURL:"https://rg-gamer-boy-ff-79de8-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"rg-gamer-boy-ff-79de8",storageBucket:"rg-gamer-boy-ff-79de8.firebasestorage.app",messagingSenderId:"699276161086",appId:"1:699276161086:web:38531927307cddcc08a16f",measurementId:"G-TRX2QKQFQF"};
+const auth=getAuth(initializeApp(firebaseConfig));await setPersistence(auth,browserLocalPersistence);
+const $=id=>document.getElementById(id);
+const usernameEmail=u=>u.trim().toLowerCase()+"@username.rggamerboyff.invalid";
+
+onAuthStateChanged(auth,user=>{$("createArea").classList.toggle("hidden",!!user);$("welcomeArea").classList.toggle("hidden",!user)});
+$("createForm").addEventListener("submit",async e=>{
+ e.preventDefault();$("message").textContent="";
+ const u=$("username").value.trim(),p=$("password").value;
+ if(!/^[A-Za-z0-9_]{5,12}$/.test(u))return $("message").textContent="Username must be 5–12 characters (letters, numbers, or underscore).";
+ if(p.length<8||p.length>15)return $("message").textContent="Password must be 8–15 characters.";
+ if(p!==$("confirm").value)return $("message").textContent="Passwords do not match.";
+ $("createBtn").disabled=true;
+ try{
+  await createUserWithEmailAndPassword(auth,usernameEmail(u),p);
+ }catch(err){
+  const code=(err.code||"").toLowerCase();
+  console.error("Firebase account creation error:",err);
+  let message="Account creation failed. Please try again.";
+  if(code==="auth/email-already-in-use") message="This username is already taken. Choose another username.";
+  else if(code==="auth/invalid-api-key"||code==="auth/api-key-not-valid"||/api.key.not.valid|api_key_invalid/i.test(err.message||"")) message="Firebase API Key was rejected. Check that this website is using the Web App config from the correct Firebase project, and that the Google API key is enabled and not blocked by API restrictions.";
+  else if(code==="auth/operation-not-allowed") message="Email/Password sign-in is disabled. Enable it in Firebase Console → Authentication → Sign-in method.";
+  else if(code==="auth/unauthorized-domain") message="This website domain is not authorized. Add the website hostname in Firebase Console → Authentication → Settings → Authorized domains.";
+  else if(code==="auth/network-request-failed") message="Could not connect to Firebase. Check your internet connection and Firebase settings.";
+  else if(code==="auth/weak-password") message="Choose a stronger password.";
+  else if(code==="auth/invalid-email") message="The account email format is invalid. Check the username-to-email mapping.";
+  else message=err.message||message;
+  $("message").textContent=message;
+ }
+ finally{$("createBtn").disabled=false;}
+});
+$("continueBtn").onclick=()=>location.href="index.html";
+</script></body></html>
